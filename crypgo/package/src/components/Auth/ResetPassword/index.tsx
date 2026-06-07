@@ -86,20 +86,13 @@ const ResetPassword = ({ token }: { token: string }) => {
               className='wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]'
               data-wow-delay='.15s'>
               <div className='mb-10 text-center'>
-                <Link href='/' className='mx-auto inline-block max-w-[160px]'>
+                <Link href='/' className='mx-auto inline-block max-w-[180px]'>
                   <Image
-                    src='/images/logo/logo.svg'
-                    alt='logo'
-                    width={140}
-                    height={30}
-                    className='dark:hidden'
-                  />
-                  <Image
-                    src='/images/logo/logo-white.svg'
-                    alt='logo'
-                    width={140}
-                    height={30}
-                    className='hidden dark:block'
+                    src='/images/logo/instec-logo-header.png'
+                    alt='INSTEC - Ingeniería e Inspecciones Técnicas'
+                    width={180}
+                    height={60}
+                    className='h-auto w-auto'
                   />
                 </Link>
               </div>

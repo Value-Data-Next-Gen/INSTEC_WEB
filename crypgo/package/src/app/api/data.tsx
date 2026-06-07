@@ -1,13 +1,3 @@
-// import { title } from "process";
-
-export const CryptoData: { name: string; price: number }[] = [
-  { name: "Bitcoin", price: 45000 },
-  { name: "Ethereum", price: 3000 },
-  { name: "Dogecoin", price: 0.25 },
-  { name: "Litecoin", price: 150 },
-  { name: "Solana", price: 100 },
-];
-
 export const footerlabels: { label: string; herf: string }[] = [
   { label: "Política de Calidad", herf: "#" },
   { label: "Certificaciones", herf: "#" },

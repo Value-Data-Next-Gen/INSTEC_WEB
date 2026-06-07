@@ -3,14 +3,13 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Sign In | Property",
+  title: "Iniciar sesión | INSTEC",
 };
 
 const SigninPage = () => {
   return (
     <>
-      <Breadcrumb pageName="Sign In Page" />
+      <Breadcrumb pageName="Iniciar sesión" />
 
       <Signin />
     </>
