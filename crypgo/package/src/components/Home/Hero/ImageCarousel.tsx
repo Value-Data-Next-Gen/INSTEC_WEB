@@ -8,32 +8,28 @@ const ImageCarousel = () => {
 
   const images = [
     {
-      src: '/images/documentation/0385012d-fcb5-4cae-8660-26185c46d5c9.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 1'
+      src: '/images/documentation/ndt-ultrasonido-omniscan.jpg',
+      alt: 'Ensayo de ultrasonido con equipo OmniScan en terreno - INSTEC'
     },
     {
-      src: '/images/documentation/422f0f60-6a1d-4f2d-88c1-e98fffbabe25.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 2'
+      src: '/images/documentation/ndt-inspeccion-planta.jpg',
+      alt: 'Inspección técnica en planta industrial - INSTEC'
     },
     {
-      src: '/images/documentation/468114cc-6da4-4981-b28f-b7ab65eb3324.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 3'
+      src: '/images/documentation/ndt-particulas-magneticas-yugo.jpg',
+      alt: 'Ensayo de partículas magnéticas con yugo - INSTEC'
     },
     {
-      src: '/images/documentation/6aae345d-c2f3-44d6-ae75-2bbbea709651.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 4'
+      src: '/images/documentation/ndt-particulas-magneticas-yugo-2.jpg',
+      alt: 'Inspección por partículas magnéticas en soldadura - INSTEC'
     },
     {
-      src: '/images/documentation/c68b1905-3feb-4255-8be2-e00e94b37d68.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 5'
+      src: '/images/documentation/ndt-inspeccion-terreno.jpg',
+      alt: 'Inspección de ensayos no destructivos en terreno - INSTEC'
     },
     {
-      src: '/images/documentation/ee7fe263-1ea7-43ba-9e2b-966e27169822.jpg',
-      alt: 'Inspección NDT INSTEC - Proyecto 6'
-    },
-    {
-      src: '/images/documentation/WhatsApp Image 2025-08-28 at 7.41.45 PM.jpeg',
-      alt: 'Inspección NDT INSTEC - Proyecto 7'
+      src: '/images/documentation/ndt-trabajo-terreno.jpg',
+      alt: 'Trabajo de inspección técnica en terreno - INSTEC'
     }
   ]
 

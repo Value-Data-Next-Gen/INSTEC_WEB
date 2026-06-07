@@ -94,7 +94,7 @@ const NosotrosCompact = () => {
             <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
               <img
-                src="/images/documentation/0385012d-fcb5-4cae-8660-26185c46d5c9.jpg"
+                src="/images/documentation/ndt-particulas-magneticas-yugo.jpg"
                 alt="Equipo INSTEC realizando inspección técnica"
                 className="absolute inset-0 w-full h-full object-cover"
               />
