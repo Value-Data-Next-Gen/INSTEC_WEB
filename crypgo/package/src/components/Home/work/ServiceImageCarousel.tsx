@@ -7,40 +7,34 @@ const ServiceImageCarousel = () => {
 
   const serviceImages = [
     {
-      src: '/images/documentation/0385012d-fcb5-4cae-8660-26185c46d5c9.jpg',
-      alt: 'Ultrasonido - Ensayos No Destructivos',
+      src: '/images/documentation/ndt-ultrasonido-omniscan.jpg',
+      alt: 'Ensayo de ultrasonido con equipo OmniScan - INSTEC',
       title: 'Ultrasonido (UT)',
       overlay: 'rgba(29, 174, 97, 0.8)'
     },
     {
-      src: '/images/documentation/422f0f60-6a1d-4f2d-88c1-e98fffbabe25.jpg',
-      alt: 'Radiografía Industrial',
-      title: 'Radiografía (RT)',
-      overlay: 'rgba(108, 92, 231, 0.8)'
-    },
-    {
-      src: '/images/documentation/468114cc-6da4-4981-b28f-b7ab65eb3324.jpg',
-      alt: 'Partículas Magnéticas',
+      src: '/images/documentation/ndt-particulas-magneticas-yugo.jpg',
+      alt: 'Ensayo de partículas magnéticas con yugo - INSTEC',
       title: 'Partículas Magnéticas (MT)',
-      overlay: 'rgba(253, 121, 168, 0.8)'
+      overlay: 'rgba(29, 174, 97, 0.75)'
     },
     {
-      src: '/images/documentation/6aae345d-c2f3-44d6-ae75-2bbbea709651.jpg',
-      alt: 'Líquidos Penetrantes',
+      src: '/images/documentation/ndt-particulas-magneticas-yugo-2.jpg',
+      alt: 'Inspección por partículas magnéticas en soldadura - INSTEC',
       title: 'Líquidos Penetrantes (PT)',
-      overlay: 'rgba(59, 130, 246, 0.8)'
+      overlay: 'rgba(7, 56, 42, 0.75)'
     },
     {
-      src: '/images/documentation/c68b1905-3feb-4255-8be2-e00e94b37d68.jpg',
-      alt: 'Inspección Visual',
-      title: 'Inspección Visual (VT)',
-      overlay: 'rgba(16, 185, 129, 0.8)'
+      src: '/images/documentation/ndt-inspeccion-planta.jpg',
+      alt: 'Inspección técnica en planta industrial - INSTEC',
+      title: 'Inspección en Terreno',
+      overlay: 'rgba(16, 185, 129, 0.75)'
     },
     {
-      src: '/images/documentation/ee7fe263-1ea7-43ba-9e2b-966e27169822.jpg',
-      alt: 'Corrientes de Eddy',
-      title: 'Corrientes de Eddy (ET)',
-      overlay: 'rgba(245, 101, 101, 0.8)'
+      src: '/images/documentation/ndt-inspeccion-terreno.jpg',
+      alt: 'Inspección de ensayos no destructivos en terreno - INSTEC',
+      title: 'Control de Calidad',
+      overlay: 'rgba(29, 174, 97, 0.8)'
     }
   ]
 

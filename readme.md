@@ -16,7 +16,16 @@ Sitio web corporativo para INSTEC, empresa chilena especializada en ensayos no d
 ### Variables de Entorno (Environment Variables):
 ```
 NODE_VERSION=18
+
+# URL de la app de gestión / portal de clientes INSTEC.
+# Los botones "Iniciar sesión" (header) y "Acceder al portal" apuntan aquí.
+# Si no se define, se usa https://app.instec.cl por defecto.
+NEXT_PUBLIC_APP_URL=https://app.instec.cl
 ```
+
+> El sitio lee `NEXT_PUBLIC_APP_URL` desde un único helper en
+> `crypgo/package/src/lib/appUrl.ts`. Para desarrollo local puedes copiar
+> `crypgo/package/.env.example` a `crypgo/package/.env.local` y ajustar el valor.
 
 ## 📁 Estructura del Proyecto
 

@@ -6,6 +6,7 @@ import { headerData } from '../Header/Navigation/menuData'
 import Logo from './Logo'
 import HeaderLink from '../Header/Navigation/HeaderLink'
 import MobileHeaderLink from '../Header/Navigation/MobileHeaderLink'
+import { APP_URL } from '@/lib/appUrl'
 
 const Header: React.FC = () => {
   const pathUrl = usePathname()
@@ -72,12 +73,23 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href="#contacto"
-              className="nicepage-btn nicepage-btn-primary px-6 py-2.5 text-sm font-medium"
+              className="nicepage-btn nicepage-btn-secondary px-6 py-2.5 text-sm font-medium"
             >
               Contactar
+            </a>
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener"
+              className="nicepage-btn nicepage-btn-primary px-6 py-2.5 text-sm font-medium inline-flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+              Iniciar sesión
             </a>
           </div>
 
@@ -148,11 +160,23 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Actions */}
-          <div className="p-6 border-t border-gray-100">
+          <div className="p-6 border-t border-gray-100 space-y-3">
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener"
+              onClick={() => setNavbarOpen(false)}
+              className="nicepage-btn nicepage-btn-primary w-full justify-center inline-flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+              Iniciar sesión
+            </a>
             <a
               href="#contacto"
               onClick={() => setNavbarOpen(false)}
-              className="nicepage-btn nicepage-btn-primary w-full justify-center"
+              className="nicepage-btn nicepage-btn-secondary w-full justify-center"
             >
               Contactar
             </a>

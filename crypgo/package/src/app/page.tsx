@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '@/components/Home/Hero'
 import NosotrosCompact from '@/components/Home/nosotros/compact'
 import Work from '@/components/Home/work'
+import Portal from '@/components/Home/portal'
 import Clientes from '@/components/Home/clientes'
 import Contacto from '@/components/Home/contacto'
 import { Metadata } from 'next'
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <NosotrosCompact />
       <Work />
+      <Portal />
       <Clientes />
       <Contacto />
     </main>
