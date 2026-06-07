@@ -1,9 +1,12 @@
+# ─── Configuración ÚNICA de Netlify (no duplicar dentro de crypgo/package) ───
+# Con base = "crypgo/package", la build corre DENTRO de esa carpeta:
+#   - command es relativo a la base → "npm run build" (sin cd, no duplicar ruta)
+#   - publish es relativo a la base → "out" (el static export de Next.js)
+# El antiguo crypgo/package/netlify.toml duplicaba la ruta (crypgo/package/
+# crypgo/package/.next) y rompía el deploy; fue eliminado.
 [build]
   base = "crypgo/package"
   command = "npm run build"
-  # El sitio usa Next.js static export (output: 'export' → distDir: 'out').
-  # Debe publicarse 'out', NO '.next' (esa carpeta es el build de servidor y
-  # dejaba el sitio sin los cambios). Ruta relativa al base 'crypgo/package'.
   publish = "out"
 
 [build.environment]
@@ -11,3 +14,29 @@
   # URL de la app de gestión a la que apunta el botón "Iniciar sesión".
   # Cambiar a https://app.instecltda.cl cuando el dominio propio tenga SSL.
   NEXT_PUBLIC_APP_URL = "https://instec-app.azurewebsites.net"
+
+# SPA fallback: el static export sirve index.html para rutas no encontradas.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de seguridad para todo el sitio.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache largo para assets estáticos con hash.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
