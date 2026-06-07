@@ -1,7 +1,13 @@
 [build]
   base = "crypgo/package"
   command = "npm run build"
-  publish = ".next"
+  # El sitio usa Next.js static export (output: 'export' → distDir: 'out').
+  # Debe publicarse 'out', NO '.next' (esa carpeta es el build de servidor y
+  # dejaba el sitio sin los cambios). Ruta relativa al base 'crypgo/package'.
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "18"
+  # URL de la app de gestión a la que apunta el botón "Iniciar sesión".
+  # Cambiar a https://app.instecltda.cl cuando el dominio propio tenga SSL.
+  NEXT_PUBLIC_APP_URL = "https://instec-app.azurewebsites.net"
