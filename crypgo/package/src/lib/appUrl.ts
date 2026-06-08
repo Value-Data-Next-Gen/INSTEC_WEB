@@ -10,4 +10,4 @@
  * `NEXT_PUBLIC_APP_URL` en Netlify, sin tocar el código.
  */
 export const APP_URL: string =
-  process.env.NEXT_PUBLIC_APP_URL ?? 'https://instec-app.azurewebsites.net'
+  process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.instecltda.cl'
