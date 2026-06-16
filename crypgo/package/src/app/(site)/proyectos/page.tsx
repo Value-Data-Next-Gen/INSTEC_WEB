@@ -3,12 +3,14 @@ import HeroSub from '@/components/SharedComponent/HeroSub'
 import Trabajos from '@/components/Home/trabajos'
 import Clientes from '@/components/Home/clientes'
 import Contacto from '@/components/Home/contacto'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Proyectos y Clientes - INSTEC | Portfolio y Casos de Éxito',
   description: 'Portfolio completo de proyectos, trabajos realizados y clientes satisfechos en inspección técnica y ensayos no destructivos. +30 años de experiencia.',
-}
+  path: '/proyectos',
+})
 
 export default function ProyectosPage() {
   return (
@@ -69,19 +71,19 @@ export default function ProyectosPage() {
       <section className="nicepage-section bg-primary text-white">
         <div className="nicepage-container">
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div data-aos="fade-up">
               <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
               <div className="text-lg opacity-90">Proyectos Completados</div>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="100">
               <div className="text-4xl md:text-5xl font-bold mb-2">100+</div>
               <div className="text-lg opacity-90">Clientes Satisfechos</div>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="200">
               <div className="text-4xl md:text-5xl font-bold mb-2">30+</div>
               <div className="text-lg opacity-90">Años de Experiencia</div>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="300">
               <div className="text-4xl md:text-5xl font-bold mb-2">6</div>
               <div className="text-lg opacity-90">Métodos NDT</div>
             </div>

@@ -5,6 +5,7 @@ import { footerlabels } from '@/app/api/data'
 import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import Logo from '../Header/Logo'
+import { SITE, whatsappURL } from '@/lib/site'
 
 const Footer: FC = () => {
   return (
@@ -18,7 +19,7 @@ const Footer: FC = () => {
               y ensayos no destructivos con los más altos estándares de calidad.
             </p>
             <div className='flex gap-6 items-center mt-8 relative z-1'>
-              <Link href='#' className='group' aria-label='Facebook'>
+              <Link href={SITE.social.facebook} target='_blank' rel='noopener noreferrer' className='group' aria-label='Facebook'>
                 <Icon
                   icon='fa6-brands:facebook-f'
                   width='24'
@@ -26,7 +27,7 @@ const Footer: FC = () => {
                   className='text-white group-hover:text-primary transition-colors'
                 />
               </Link>
-              <Link href='#' className='group' aria-label='LinkedIn'>
+              <Link href={SITE.social.linkedin} target='_blank' rel='noopener noreferrer' className='group' aria-label='LinkedIn'>
                 <Icon
                   icon='fa6-brands:linkedin-in'
                   width='24'
@@ -34,7 +35,7 @@ const Footer: FC = () => {
                   className='text-white group-hover:text-primary transition-colors'
                 />
               </Link>
-              <Link href='#' className='group' aria-label='WhatsApp'>
+              <Link href={whatsappURL()} target='_blank' rel='noopener noreferrer' className='group' aria-label='WhatsApp'>
                 <Icon
                   icon='fa6-brands:whatsapp'
                   width='24'
@@ -102,8 +103,8 @@ const Footer: FC = () => {
                   className='text-primary mt-1 flex-shrink-0'
                 />
                 <div>
-                  <p className='text-muted/80 text-sm'>+569 99972647</p>
-                  <p className='text-muted/80 text-sm'>+569 57589575</p>
+                  <p className='text-muted/80 text-sm'>{SITE.contact.phonePrimary}</p>
+                  <p className='text-muted/80 text-sm'>{SITE.contact.phoneSecondary}</p>
                 </div>
               </div>
               <div className='flex items-start gap-3'>

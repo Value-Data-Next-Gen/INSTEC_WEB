@@ -3,12 +3,14 @@ import HeroSub from '@/components/SharedComponent/HeroSub'
 import TimeLine from '@/components/Home/timeline'
 import Work from '@/components/Home/work'
 import Contacto from '@/components/Home/contacto'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Servicios - INSTEC | Ensayos No Destructivos, Metrología e Inspecciones',
   description: 'Servicios completos: ensayos no destructivos, metrología, metodología de inspección, ultrasonido, radiografía industrial y más. +30 años de experiencia.',
-}
+  path: '/servicios',
+})
 
 export default function ServiciosPage() {
   return (
@@ -22,12 +24,12 @@ export default function ServiciosPage() {
       <Work />
       
       {/* Metrología Section */}
-      <section className="nicepage-section bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="nicepage-section bg-gradient-to-br from-gray-50 to-[#eef7f1]">
         <div className="nicepage-container">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-lg mb-6">
-              <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-blue-600">
+            <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-sm ring-1 ring-gray-100 mb-6">
+              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <span className="text-sm font-semibold text-primary">
                 Metrología y Mediciones
               </span>
             </div>
@@ -41,9 +43,9 @@ export default function ServiciosPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div data-aos="fade-up" className="bg-white rounded-3xl p-8 shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-primary/20 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z"/>
                 </svg>
               </div>
@@ -56,9 +58,9 @@ export default function ServiciosPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div data-aos="fade-up" data-aos-delay="100" className="bg-white rounded-3xl p-8 shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-primary/20 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19.14,12.94C19.73,12.94 20.2,12.47 20.2,11.88C20.2,11.29 19.73,10.82 19.14,10.82C18.55,10.82 18.08,11.29 18.08,11.88C18.08,12.47 18.55,12.94 19.14,12.94Z"/>
                 </svg>
               </div>
@@ -71,9 +73,9 @@ export default function ServiciosPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <div data-aos="fade-up" data-aos-delay="200" className="bg-white rounded-3xl p-8 shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-primary/20 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12,6V4C12,3.45 11.55,3 11,3H5C4.45,3 4,3.45 4,4V6C4,6.55 4.45,7 5,7H11C11.55,7 12,6.55 12,6Z"/>
                 </svg>
               </div>
@@ -124,7 +126,7 @@ export default function ServiciosPage() {
 
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold">2</span>
                   </div>
                   <div>
@@ -136,7 +138,7 @@ export default function ServiciosPage() {
 
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold">3</span>
                   </div>
                   <div>
@@ -148,7 +150,7 @@ export default function ServiciosPage() {
 
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold">4</span>
                   </div>
                   <div>

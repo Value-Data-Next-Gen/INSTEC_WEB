@@ -21,7 +21,16 @@ NODE_VERSION=18
 # Los botones "Iniciar sesión" (header) y "Acceder al portal" apuntan aquí.
 # Si no se define, se usa https://app.instec.cl por defecto.
 NEXT_PUBLIC_APP_URL=https://app.instec.cl
+
+# ID de Google Analytics 4 (G-XXXXXXXXXX). Opcional: si no se define,
+# no se carga analítica y los eventos de conversión quedan como no-op.
+NEXT_PUBLIC_GA_ID=
 ```
+
+> Datos de contacto (teléfono, email, WhatsApp, redes) centralizados en
+> `crypgo/package/src/lib/site.ts`. El número de WhatsApp es **+56 9 9997 2647**.
+> La analítica (GA4 + captura UTM + eventos `whatsapp_click` / `cta_click` /
+> `form_start` / `generate_lead`) vive en `src/lib/analytics.ts` y `src/lib/utm.ts`.
 
 > El sitio lee `NEXT_PUBLIC_APP_URL` desde un único helper en
 > `crypgo/package/src/lib/appUrl.ts`. Para desarrollo local puedes copiar
