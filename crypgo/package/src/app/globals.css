@@ -286,6 +286,30 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa el header fijo al navegar a anclas (#contacto, #work, ...) */
+  scroll-padding-top: 6rem;
+}
+
+/* Foco accesible y visible para navegación por teclado */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Respeta la preferencia de menos movimiento del sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 section {

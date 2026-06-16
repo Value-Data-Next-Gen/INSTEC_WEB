@@ -96,24 +96,25 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
-            className="lg:hidden relative w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 hover:bg-white/20"
-            aria-label="Toggle mobile menu"
+            className="lg:hidden relative w-11 h-11 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center transition-all duration-300 hover:bg-gray-200"
+            aria-label="Abrir menú"
+            aria-expanded={navbarOpen}
           >
-            <div className="flex flex-col gap-1.5">
-              <span 
+            <div className="flex flex-col gap-1.5 text-gray-900">
+              <span
                 className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
                   navbarOpen ? 'rotate-45 translate-y-2' : ''
-                } ${sticky ? 'text-gray-900' : 'text-white'}`}
+                }`}
               ></span>
-              <span 
+              <span
                 className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
                   navbarOpen ? 'opacity-0' : ''
-                } ${sticky ? 'text-gray-900' : 'text-white'}`}
+                }`}
               ></span>
-              <span 
+              <span
                 className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
                   navbarOpen ? '-rotate-45 -translate-y-2' : ''
-                } ${sticky ? 'text-gray-900' : 'text-white'}`}
+                }`}
               ></span>
             </div>
           </button>

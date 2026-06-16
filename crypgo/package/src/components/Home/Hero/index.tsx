@@ -2,183 +2,169 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import ImageCarousel from './ImageCarousel'
+import { whatsappURL } from '@/lib/site'
+import { trackWhatsAppClick, trackCtaClick } from '@/lib/analytics'
+
+const stats = [
+  { value: '30+', label: 'Años de experiencia' },
+  { value: '6', label: 'Métodos NDT' },
+  { value: '500+', label: 'Proyectos' },
+]
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center nicepage-bg-pattern overflow-hidden pt-24 md:pt-28 lg:pt-32" id="main-banner">
-      {/* Background geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Large geometric shape - top right */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
-        {/* Medium geometric shape - bottom left */}
-        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-gradient-to-tr from-secondary/10 to-accent/10 rounded-full blur-2xl"></div>
-        {/* Small floating elements */}
-        <div className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-secondary rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-accent rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
-      </div>
+    <section
+      className="relative flex items-center overflow-hidden pt-28 pb-20 md:pt-32 lg:min-h-screen lg:pb-0"
+      id="main-banner"
+    >
+      {/* Background: clean light base + subtle grid + green glow */}
+      <div className="absolute inset-0 -z-10 bg-[#f7faf8]" />
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.5]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(29,174,97,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,174,97,0.06) 1px, transparent 1px)',
+          backgroundSize: '46px 46px',
+          maskImage: 'radial-gradient(ellipse 80% 60% at 70% 30%, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 70% 30%, black 30%, transparent 75%)',
+        }}
+      />
+      <div className="absolute -top-32 right-0 -z-10 h-[480px] w-[480px] rounded-full bg-primary/15 blur-[120px]" />
+      <div className="absolute bottom-0 -left-24 -z-10 h-[360px] w-[360px] rounded-full bg-secondary/10 blur-[120px]" />
 
-      <div className="nicepage-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="nicepage-container relative z-10 w-full">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           {/* Left content */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
             className="text-center lg:text-left"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-lg mb-8"
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm"
             >
-              <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold" style={{color: 'var(--color-text-secondary)'}}>
-                30+ años de experiencia técnica
-              </span>
-            </motion.div>
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Ensayos No Destructivos · Chile
+            </motion.span>
 
-            {/* Main heading with logo */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex-shrink-0"
-              >
-                {/* Technical NDT Logo Icon */}
-                <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-xl">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-white">
-                    <path d="M12,2A2,2 0 0,1 14,4V8A2,2 0 0,1 12,10A2,2 0 0,1 10,8V4A2,2 0 0,1 12,2M21,11H20A8,8 0 0,0 12,3A8,8 0 0,0 4,11H3A1,1 0 0,0 2,12A1,1 0 0,0 3,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13H21A1,1 0 0,0 22,12A1,1 0 0,0 21,11Z"/>
-                    <circle cx="12" cy="12" r="2" fill="rgba(255,255,255,0.3)"/>
-                  </svg>
-                </div>
-              </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-6xl"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Garantizamos la integridad de tus{' '}
+              <span style={{ color: 'var(--color-primary)' }}>activos industriales</span>
+            </motion.h1>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-                style={{color: 'var(--color-text-primary)'}}
-              >
-                Especialistas en{' '}
-                <span className="relative block lg:inline">
-                  <span style={{color: 'var(--color-primary)'}}>
-                    Ensayos No Destructivos
-                  </span>
-                  <svg className="absolute -bottom-2 left-0 w-full h-4" viewBox="0 0 300 12" fill="none">
-                    <path d="M5 6C50 1 150 1 295 6" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/30"/>
-                  </svg>
-                </span>
-              </motion.h1>
-            </div>
-
-            {/* Subheading */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl lg:text-2xl mb-10 leading-relaxed max-w-xl"
-              style={{color: 'var(--color-text-secondary)'}}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="mx-auto mt-6 max-w-xl text-lg leading-relaxed lg:mx-0 lg:text-xl"
+              style={{ color: 'var(--color-text-secondary)' }}
             >
-              Garantizamos la <strong style={{color: 'var(--color-text-primary)'}}>calidad</strong> y <strong style={{color: 'var(--color-text-primary)'}}>seguridad</strong> de tus proyectos industriales con tecnología avanzada y personal certificado.
+              Más de 30 años entregando inspección técnica, ensayos no destructivos y
+              control de calidad con personal certificado y estándares internacionales.
             </motion.p>
 
-            {/* CTA buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="mt-9 flex flex-col flex-wrap gap-4 sm:flex-row lg:justify-start"
             >
-              <Link 
-                href="/#work" 
-                className="nicepage-btn nicepage-btn-primary text-lg px-8 py-4 group"
+              <a
+                href={whatsappURL()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('hero')}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] px-7 py-4 text-base font-semibold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:-translate-y-0.5 hover:bg-[#1ebe5d] hover:shadow-xl"
               >
-                Ver Nuestros Servicios
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.106" />
+                </svg>
+                Cotizar por WhatsApp
+              </a>
+              <Link
+                href="/#work"
+                onClick={() => trackCtaClick('Ver servicios', 'hero')}
+                className="group inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-gray-200 bg-white px-7 py-4 text-base font-semibold text-gray-700 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              >
+                Ver nuestros servicios
+                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link 
-                href="/#contacto" 
-                className="nicepage-btn nicepage-btn-secondary text-lg px-8 py-4"
-              >
-                Solicitar Cotización
-              </Link>
             </motion.div>
 
-            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 max-w-lg"
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="mt-12 flex items-center justify-center divide-x divide-gray-200 lg:justify-start"
             >
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold" style={{color: 'var(--color-primary)'}}>30+</div>
-                <div className="text-sm font-medium" style={{color: 'var(--color-text-muted)'}}>Años de experiencia</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold" style={{color: 'var(--color-secondary)'}}>6</div>
-                <div className="text-sm font-medium" style={{color: 'var(--color-text-muted)'}}>Métodos NDT</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold" style={{color: 'var(--color-accent)'}}>100%</div>
-                <div className="text-sm font-medium" style={{color: 'var(--color-text-muted)'}}>Certificado</div>
-              </div>
+              {stats.map((s) => (
+                <div key={s.label} className="px-6 first:pl-0">
+                  <div className="text-3xl font-bold" style={{ color: 'var(--color-primary)' }}>
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-sm font-medium" style={{ color: 'var(--color-text-muted)' }}>
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Right content - Photo Carousel */}
+          {/* Right content - premium image presentation */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.25, ease: 'easeOut' }}
+            className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
-            {/* Photo Carousel Container */}
-            <div className="relative">
-              {/* Background card */}
-              <div className="absolute inset-0 bg-white rounded-3xl shadow-2xl transform rotate-3"></div>
-              <div className="relative bg-white rounded-3xl p-8 shadow-lg overflow-hidden">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="text-sm font-medium" style={{color: 'var(--color-text-muted)'}}>INSTEC Galería</div>
-                </div>
+            {/* Decorative gradient frame behind */}
+            <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent blur-md" />
 
-                {/* Photo Carousel */}
-                <ImageCarousel />
-              </div>
-            </div>
+            <ImageCarousel />
 
-            {/* Floating elements */}
+            {/* Floating certification badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1.5 }}
-              className="absolute -top-6 -right-6 bg-primary text-white p-4 rounded-2xl shadow-lg"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="absolute -left-4 top-8 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-xl ring-1 ring-black/5 backdrop-blur md:-left-8"
             >
-              <div className="text-2xl font-bold">✓</div>
-              <div className="text-xs font-medium">Certificado</div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div className="text-sm font-bold leading-tight" style={{ color: 'var(--color-text-primary)' }}>
+                  Personal certificado
+                </div>
+                <div className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
+                  ASME · ISO 9712 · AWS
+                </div>
+              </div>
             </motion.div>
 
+            {/* Floating experience badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1.7 }}
-              className="absolute -bottom-6 -left-6 bg-secondary text-white p-4 rounded-2xl shadow-lg"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.15 }}
+              className="absolute -right-3 bottom-10 rounded-2xl bg-primary px-5 py-4 text-white shadow-xl md:-right-6"
             >
-              <div className="text-2xl font-bold">30+</div>
-              <div className="text-xs font-medium">Años</div>
+              <div className="text-2xl font-bold leading-none">+30</div>
+              <div className="mt-1 text-xs font-medium opacity-90">años en terreno</div>
             </motion.div>
           </motion.div>
         </div>

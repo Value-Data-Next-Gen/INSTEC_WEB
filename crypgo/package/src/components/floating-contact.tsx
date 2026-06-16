@@ -1,17 +1,15 @@
 'use client'
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { whatsappURL } from '@/lib/site';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 const FloatingContact = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // WhatsApp configuration
-  const phoneNumber = '56932942337';
-  const message = 'Hola, me interesa conocer más sobre los servicios de ValueData.';
-
   const openWhatsApp = () => {
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    trackWhatsAppClick('floating');
+    window.open(whatsappURL(), '_blank');
   };
 
   return (

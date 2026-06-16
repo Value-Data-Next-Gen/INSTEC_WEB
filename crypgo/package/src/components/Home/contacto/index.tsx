@@ -1,10 +1,15 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { SITE, whatsappURL } from '@/lib/site'
+import { trackLead, trackFormStart, trackWhatsAppClick } from '@/lib/analytics'
 
 const Contacto = () => {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-100px" })
+  const formStarted = useRef(false)
+  const formRef = useRef<HTMLFormElement>(null)
+  const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     nombre: '',
     empresa: '',
@@ -25,37 +30,46 @@ const Contacto = () => {
     'Consultoría Técnica'
   ]
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Crear el cuerpo del email
-    const emailBody = `
-Nombre: ${formData.nombre}
-Empresa: ${formData.empresa}
-Email: ${formData.email}
-Teléfono: ${formData.telefono}
-Servicio: ${formData.servicio}
-Mensaje: ${formData.mensaje}
-    `;
+  const buildMessage = () =>
+    [
+      `Nombre: ${formData.nombre}`,
+      formData.empresa && `Empresa: ${formData.empresa}`,
+      `Email: ${formData.email}`,
+      formData.telefono && `Teléfono: ${formData.telefono}`,
+      `Servicio: ${formData.servicio}`,
+      `Mensaje: ${formData.mensaje}`,
+    ]
+      .filter(Boolean)
+      .join('\n')
 
-    // Crear enlaces de mailto para ambos emails
-    const email1 = `mailto:instec@instec.cl?subject=Solicitud de Cotización - ${formData.servicio}&body=${encodeURIComponent(emailBody)}`;
-    // Solo usar el email principal de INSTEC
-    
-    // Abrir email
-    window.open(email1, '_blank');
-    
-    // Limpiar formulario
-    setFormData({
-      nombre: '',
-      empresa: '',
-      email: '',
-      telefono: '',
-      servicio: '',
-      mensaje: ''
-    });
-    
-    alert('Solicitud enviada. Se abrirán los clientes de email para completar el envío.');
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const subject = `Solicitud de Cotización - ${formData.servicio}`
+    const mailto = `mailto:${SITE.contact.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(buildMessage())}`
+
+    trackLead({ servicio: formData.servicio, channel: 'form' })
+    window.location.href = mailto
+    setSubmitted(true)
+  }
+
+  const handleSendWhatsApp = () => {
+    // Usa la validación nativa del formulario para mostrar qué falta.
+    if (formRef.current && !formRef.current.reportValidity()) {
+      return
+    }
+    trackWhatsAppClick('contacto-form')
+    trackLead({ servicio: formData.servicio, channel: 'whatsapp' })
+    window.open(whatsappURL(`Hola INSTEC, quiero solicitar una cotización.\n\n${buildMessage()}`), '_blank')
+    setSubmitted(true)
+  }
+
+  const resetForm = () => {
+    setFormData({ nombre: '', empresa: '', email: '', telefono: '', servicio: '', mensaje: '' })
+    setSubmitted(false)
+    formStarted.current = false
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -63,6 +77,13 @@ Mensaje: ${formData.mensaje}
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleFormFocus = () => {
+    if (!formStarted.current) {
+      formStarted.current = true
+      trackFormStart()
+    }
   }
 
   return (
@@ -104,7 +125,7 @@ Mensaje: ${formData.mensaje}
             >
               <div className="nicepage-card">
                 <h3 className="nicepage-heading-md mb-6">Solicitar Cotización</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block nicepage-text-small font-medium mb-2">
@@ -116,7 +137,7 @@ Mensaje: ${formData.mensaje}
                         required
                         value={formData.nombre}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="Tu nombre completo"
                       />
                     </div>
@@ -129,7 +150,7 @@ Mensaje: ${formData.mensaje}
                         name="empresa"
                         value={formData.empresa}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="Nombre de tu empresa"
                       />
                     </div>
@@ -146,7 +167,7 @@ Mensaje: ${formData.mensaje}
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="tu@email.com"
                       />
                     </div>
@@ -159,7 +180,7 @@ Mensaje: ${formData.mensaje}
                         name="telefono"
                         value={formData.telefono}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="+56 9 xxxx xxxx"
                       />
                     </div>
@@ -174,7 +195,7 @@ Mensaje: ${formData.mensaje}
                       required
                       value={formData.servicio}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                     >
                       <option value="">Selecciona un servicio</option>
                       {servicios.map((servicio) => (
@@ -195,17 +216,47 @@ Mensaje: ${formData.mensaje}
                       rows={4}
                       value={formData.mensaje}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-600 bg-gray-800 text-white focus:border-primary focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none"
                       placeholder="Describe tu proyecto y requerimientos específicos..."
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="nicepage-btn nicepage-btn-primary w-full text-lg py-4"
-                  >
-                    Enviar Solicitud
-                  </button>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <button
+                      type="submit"
+                      className="nicepage-btn nicepage-btn-primary w-full py-4"
+                    >
+                      Enviar por email
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleSendWhatsApp}
+                      className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl font-semibold text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.106" />
+                      </svg>
+                      WhatsApp
+                    </button>
+                  </div>
+
+                  {submitted && (
+                    <div className="flex items-start gap-3 rounded-xl border border-primary/30 bg-primary/5 p-4">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <div className="text-sm">
+                        <p className="font-semibold text-gray-900">¡Listo! Estamos procesando tu solicitud.</p>
+                        <p className="text-gray-600">
+                          Se abrió tu app de correo/WhatsApp para completar el envío. Si no se abrió,
+                          escríbenos a {SITE.contact.email}.{' '}
+                          <button type="button" onClick={resetForm} className="font-medium text-primary underline">
+                            Enviar otra
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </form>
               </div>
             </motion.div>
@@ -245,7 +296,7 @@ Mensaje: ${formData.mensaje}
                     <div>
                       <h4 className="nicepage-subheading font-semibold mb-1">Email</h4>
                       <p className="nicepage-text">
-                        instec@instec.cl
+                        {SITE.contact.email}
                       </p>
                     </div>
                   </div>
@@ -259,12 +310,25 @@ Mensaje: ${formData.mensaje}
                     <div>
                       <h4 className="nicepage-subheading font-semibold mb-1">Teléfono</h4>
                       <p className="nicepage-text">
-                        +569 99972647<br />
-                        +569 57589575
+                        {SITE.contact.phonePrimary}<br />
+                        {SITE.contact.phoneSecondary}
                       </p>
                     </div>
                   </div>
                 </div>
+
+                <a
+                  href={whatsappURL()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('contacto')}
+                  className="mt-8 w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.106"/>
+                  </svg>
+                  Escríbenos por WhatsApp
+                </a>
               </div>
 
               {/* Horario de Atención */}
@@ -299,7 +363,7 @@ Mensaje: ${formData.mensaje}
                     </svg>
                   </div>
                   <div>
-                    <p className="text-red-400 font-semibold">+569 99972647</p>
+                    <p className="text-red-400 font-semibold">{SITE.contact.phonePrimary}</p>
                     <p className="nicepage-text-small">24 horas / 7 días</p>
                   </div>
                 </div>
