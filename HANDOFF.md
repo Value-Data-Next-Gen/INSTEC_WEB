@@ -3,7 +3,7 @@
 Estado y guía de continuidad del sitio corporativo de **INSTEC – Ingeniería e
 Inspecciones Técnicas** (ensayos no destructivos, Chile).
 
-_Última actualización: 2026-06-16._
+_Última actualización: 2026-07-21._
 
 ---
 
@@ -13,7 +13,7 @@ _Última actualización: 2026-06-16._
 |---|---|
 | **Repo** | `github.com/Value-Data-Next-Gen/INSTEC_WEB` |
 | **Stack** | Next.js 15 · React 19 · Tailwind v4 · framer-motion |
-| **Render** | Static export (`output: 'export'`, `distDir: out`) |
+| **Render** | Static export (`output: 'export'`; build en `.next`, export en `out/`) |
 | **Base de build** | `crypgo/package` |
 | **Hosting** | Netlify (deploy automático desde `main`) |
 | **Marca** | Verde `#1DAE61`; sistema de utilidades `nicepage-*` en `globals.css` |
@@ -51,6 +51,34 @@ Entregado vía PR #2 (squash) → **mergeado a `main`** (commit `9016d46`).
 
 ---
 
+## 2.b Qué se hizo (jul 2026 — commit `80066cd`)
+
+- **Fotos reales nuevas**: se incorporaron 9 fotos de terreno/taller (ensayos UT,
+  MT, rodetes Francis, molino en planta) optimizadas a `public/images/documentation/`
+  (`ndt-molino-inspeccion`, `ndt-ultrasonido-barra/-eje/-rodete`,
+  `ndt-particulas-magneticas-turbina`, `ndt-rodete-francis(-2)`,
+  `ndt-ejes-mecanizados`, `ndt-tambor-taller`). Fuente original (pesada, **no
+  versionada**): carpeta `Instec ltda/` en la raíz local.
+- **Hero y Servicios**: carruseles actualizados con las fotos nuevas. En Servicios
+  se **eliminó el gradiente rotatorio morado/rosa** (herencia del template) que
+  tapaba las fotos; ahora se ven con tinte verde de marca + backdrop blur.
+- **Nosotros / Contacto**: fondo de foto difuminado on-brand (verde), legible.
+- **Nueva sección "Nuestro trabajo en terreno"** (`components/Home/galeria/`):
+  galería masonry con lightbox que usa las 9 fotos. Insertada en la home entre
+  Servicios y Clientes (ancla `#galeria`).
+- **Fix botones muertos** en Servicios: "Conocer Más"→`#galeria` (ahora "Ver
+  nuestro trabajo") y "Más información"→`#contacto`.
+- **Fix de config** (causaba 404 falsos en dev y `out/` corrupto):
+  se eliminó `distDir: 'out'` de `next.config.js` (con eso `next dev` sobreescribía
+  el export publicado); menú con trailing slash para coincidir con `trailingSlash: true`.
+
+> ⚠️ **Nota dev**: en `npm run dev`, el **primer** acceso a cada ruta compila en
+> caliente y puede tardar bastante (se observó hasta ~5 min en frío, luego 1-2 s).
+> No es un bug de navegación. Para revisar rápido, servir el build:
+> `npm run build && npx serve out`. **No** correr dos `next dev` a la vez.
+
+---
+
 ## 3. ⚠️ Pendientes antes de cerrar producción
 
 Todo se configura en un solo lugar salvo el GA ID (variable de entorno).
@@ -85,6 +113,10 @@ Todo se configura en un solo lugar salvo el GA ID (variable de entorno).
 | Carga de GA + init UTM | `src/components/Analytics/index.tsx` |
 | Metadatos raíz + JSON-LD | `src/app/layout.tsx` |
 | Hero + carrusel | `src/components/Home/Hero/` |
+| Carrusel de servicios | `src/components/Home/work/ServiceImageCarousel.tsx` |
+| Galería "trabajo en terreno" + lightbox | `src/components/Home/galeria/index.tsx` |
+| Orden de secciones de la home | `src/app/page.tsx` |
+| Menú de navegación | `src/components/Layout/Header/Navigation/menuData.tsx` |
 | Formulario de contacto | `src/components/Home/contacto/index.tsx` |
 | URL del portal de clientes | `src/lib/appUrl.ts` (`NEXT_PUBLIC_APP_URL`) |
 | Imagen OG | `public/images/og-default.png` (generada con Pillow) |
