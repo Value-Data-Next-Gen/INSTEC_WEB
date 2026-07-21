@@ -7,143 +7,119 @@ const ServiceImageCarousel = () => {
 
   const serviceImages = [
     {
-      src: '/images/documentation/ndt-ultrasonido-omniscan.jpg',
-      alt: 'Ensayo de ultrasonido con equipo OmniScan - INSTEC',
+      src: '/images/documentation/ndt-ultrasonido-barra.jpg',
+      alt: 'Ensayo de ultrasonido con detector de fallas en barra de acero - INSTEC',
       title: 'Ultrasonido (UT)',
-      overlay: 'rgba(29, 174, 97, 0.8)'
     },
     {
-      src: '/images/documentation/ndt-particulas-magneticas-yugo.jpg',
-      alt: 'Ensayo de partículas magnéticas con yugo - INSTEC',
+      src: '/images/documentation/ndt-particulas-magneticas-turbina.jpg',
+      alt: 'Ensayo de partículas magnéticas con yugo sobre rodete de turbina - INSTEC',
       title: 'Partículas Magnéticas (MT)',
-      overlay: 'rgba(29, 174, 97, 0.75)'
     },
     {
-      src: '/images/documentation/ndt-particulas-magneticas-yugo-2.jpg',
-      alt: 'Inspección por partículas magnéticas en soldadura - INSTEC',
+      src: '/images/documentation/ndt-ultrasonido-rodete.jpg',
+      alt: 'Inspección ultrasónica sobre rodete de bomba - INSTEC',
       title: 'Líquidos Penetrantes (PT)',
-      overlay: 'rgba(7, 56, 42, 0.75)'
     },
     {
-      src: '/images/documentation/ndt-inspeccion-planta.jpg',
-      alt: 'Inspección técnica en planta industrial - INSTEC',
+      src: '/images/documentation/ndt-molino-inspeccion.jpg',
+      alt: 'Inspección técnica de molino en planta industrial - INSTEC',
       title: 'Inspección en Terreno',
-      overlay: 'rgba(16, 185, 129, 0.75)'
     },
     {
-      src: '/images/documentation/ndt-inspeccion-terreno.jpg',
-      alt: 'Inspección de ensayos no destructivos en terreno - INSTEC',
+      src: '/images/documentation/ndt-rodete-francis.jpg',
+      alt: 'Control dimensional de rodete Francis en taller - INSTEC',
       title: 'Control de Calidad',
-      overlay: 'rgba(29, 174, 97, 0.8)'
-    }
+    },
   ]
 
   // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % serviceImages.length)
-    }, 4000) // Change image every 4 seconds
+    }, 4500)
 
     return () => clearInterval(interval)
   }, [serviceImages.length])
 
   return (
-    <div className="absolute inset-0">
-      <AnimatePresence mode="wait">
+    <div className="absolute inset-0 bg-gray-950">
+      <AnimatePresence mode="sync">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ 
-            duration: 1.5,
-            ease: "easeInOut"
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          {/* Service Image */}
+          {/* Blurred ambient backdrop fills the frame regardless of photo ratio */}
+          <img
+            src={serviceImages[currentIndex].src}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full scale-125 object-cover blur-2xl brightness-[0.6] saturate-150"
+          />
+
+          {/* Foreground photo with a slow Ken Burns push */}
           <motion.img
             src={serviceImages[currentIndex].src}
             alt={serviceImages[currentIndex].alt}
-            className="absolute inset-0 w-full h-full object-cover"
-            initial={{ scale: 1 }}
-            animate={{ scale: 1.05 }}
-            transition={{ 
-              duration: 8,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-          />
-          
-          {/* Dynamic Color Overlay */}
-          <motion.div
-            className="absolute inset-0"
-            style={{ backgroundColor: serviceImages[currentIndex].overlay }}
-            initial={{ opacity: 0.7 }}
-            animate={{ opacity: [0.7, 0.5, 0.7] }}
-            transition={{ 
-              duration: 3,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+            className="absolute inset-0 h-full w-full object-cover"
+            initial={{ scale: 1.02 }}
+            animate={{ scale: 1.12 }}
+            transition={{ duration: 9, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }}
           />
 
-          {/* Service Title Overlay */}
-          <motion.div
-            className="absolute bottom-8 left-8 right-8"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4">
-              <motion.h4
-                className="text-white font-bold text-lg md:text-xl"
-                animate={{ 
-                  textShadow: [
-                    '0px 0px 10px rgba(255,255,255,0.3)',
-                    '0px 0px 20px rgba(255,255,255,0.6)',
-                    '0px 0px 10px rgba(255,255,255,0.3)'
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                {serviceImages[currentIndex].title}
-              </motion.h4>
-            </div>
-          </motion.div>
+          {/* Brand tint + legibility gradient (kept subtle so the photo reads) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(7,56,42,0.35) 0%, rgba(7,56,42,0.15) 45%, rgba(4,20,15,0.72) 100%)',
+            }}
+          />
+          <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Progress Indicators */}
+      {/* Active service label */}
+      <div className="absolute bottom-8 left-8 right-8">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ y: 24, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -12, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-3 rounded-2xl bg-black/35 px-4 py-3 backdrop-blur-md ring-1 ring-white/15"
+          >
+            <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_14px_2px_rgba(29,174,97,0.7)]" />
+            <h4 className="text-lg font-bold text-white drop-shadow md:text-xl">
+              {serviceImages[currentIndex].title}
+            </h4>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Progress indicators */}
       <div className="absolute top-6 right-6 flex gap-2">
         {serviceImages.map((_, index) => (
-          <motion.div
+          <button
             key={index}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'w-8 bg-white' 
-                : 'w-4 bg-white/50'
+            onClick={() => setCurrentIndex(index)}
+            aria-label={`Ver servicio ${index + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              index === currentIndex ? 'w-8 bg-white' : 'w-4 bg-white/50 hover:bg-white/80'
             }`}
-            animate={{
-              scaleX: index === currentIndex ? [0, 1] : 1
-            }}
-            transition={{
-              duration: index === currentIndex ? 4 : 0.3
-            }}
           />
         ))}
       </div>
 
-      {/* Service Counter */}
-      <motion.div
-        className="absolute top-6 left-6 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 text-white font-semibold text-sm"
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-      >
+      {/* Service counter */}
+      <div className="absolute top-6 left-6 rounded-full bg-black/40 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md ring-1 ring-white/15">
         {String(currentIndex + 1).padStart(2, '0')} / {String(serviceImages.length).padStart(2, '0')}
-      </motion.div>
+      </div>
     </div>
   )
 }

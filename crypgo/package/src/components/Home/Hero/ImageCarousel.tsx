@@ -5,29 +5,29 @@ import Image from 'next/image'
 
 const images = [
   {
-    src: '/images/documentation/ndt-inspeccion-planta.jpg',
+    src: '/images/documentation/ndt-molino-inspeccion.jpg',
     label: 'Inspección en planta',
-    alt: 'Inspección técnica en planta industrial - INSTEC',
+    alt: 'Inspección técnica de molino en planta industrial - INSTEC',
   },
   {
-    src: '/images/documentation/ndt-ultrasonido-omniscan.jpg',
+    src: '/images/documentation/ndt-ultrasonido-barra.jpg',
     label: 'Ultrasonido (UT)',
-    alt: 'Ensayo de ultrasonido con equipo OmniScan en terreno - INSTEC',
+    alt: 'Ensayo de ultrasonido con detector de fallas en eje - INSTEC',
   },
   {
-    src: '/images/documentation/ndt-inspeccion-terreno.jpg',
-    label: 'Inspección en terreno',
-    alt: 'Inspección de ensayos no destructivos en terreno - INSTEC',
-  },
-  {
-    src: '/images/documentation/ndt-particulas-magneticas-yugo.jpg',
+    src: '/images/documentation/ndt-particulas-magneticas-turbina.jpg',
     label: 'Partículas magnéticas (MT)',
-    alt: 'Ensayo de partículas magnéticas con yugo - INSTEC',
+    alt: 'Ensayo de partículas magnéticas con yugo sobre rodete de turbina - INSTEC',
   },
   {
-    src: '/images/documentation/ndt-trabajo-terreno.jpg',
-    label: 'Control de soldaduras',
-    alt: 'Trabajo de inspección técnica en terreno - INSTEC',
+    src: '/images/documentation/ndt-ultrasonido-eje.jpg',
+    label: 'Medición de espesores',
+    alt: 'Medición ultrasónica de espesores sobre eje mecanizado - INSTEC',
+  },
+  {
+    src: '/images/documentation/ndt-rodete-francis.jpg',
+    label: 'Control dimensional',
+    alt: 'Rodete Francis de acero inoxidable en taller de inspección - INSTEC',
   },
 ]
 

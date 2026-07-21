@@ -87,8 +87,20 @@ const Contacto = () => {
   }
 
   return (
-    <section className="nicepage-section nicepage-bg-pattern" id="contacto">
-      <div className="nicepage-container">
+    <section className="nicepage-section nicepage-bg-pattern relative overflow-hidden" id="contacto">
+      {/* Blurred industrial backdrop with a frosted light wash for legibility */}
+      <div className="pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
+        <img
+          src="/images/documentation/ndt-ultrasonido-eje.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-110 saturate-125"
+        />
+        <div className="absolute inset-0 bg-[#f7faf8]/90" />
+        <div className="absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute -bottom-24 -left-24 h-[360px] w-[360px] rounded-full bg-primary/10 blur-[120px]" />
+      </div>
+
+      <div className="nicepage-container relative z-10">
         <div ref={ref}>
           {/* Header */}
           <motion.div

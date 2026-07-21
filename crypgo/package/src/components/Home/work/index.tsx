@@ -95,24 +95,9 @@ const Work = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative h-64 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl mb-16 group"
           >
-            {/* Animated Background Gradient */}
-            <motion.div 
-              className="absolute inset-0"
-              animate={{
-                background: [
-                  'linear-gradient(45deg, rgba(29, 174, 97, 0.8), rgba(108, 92, 231, 0.8))',
-                  'linear-gradient(135deg, rgba(108, 92, 231, 0.8), rgba(253, 121, 168, 0.8))',
-                  'linear-gradient(225deg, rgba(253, 121, 168, 0.8), rgba(29, 174, 97, 0.8))',
-                  'linear-gradient(315deg, rgba(29, 174, 97, 0.8), rgba(108, 92, 231, 0.8))'
-                ]
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            />
-            
+            {/* Dynamic Service Image Carousel (provides its own imagery, blur & tint) */}
+            <ServiceImageCarousel />
+
             {/* Floating Geometric Shapes */}
             <motion.div
               className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"
@@ -154,9 +139,6 @@ const Work = () => {
               }}
             />
 
-            {/* Dynamic Service Image Carousel */}
-            <ServiceImageCarousel />
-            
             {/* Content with Advanced Animations */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center text-white px-6 max-w-4xl">
@@ -191,19 +173,20 @@ const Work = () => {
                 </motion.p>
                 
                 {/* Animated CTA Button */}
-                <motion.button
-                  className="mt-8 px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
+                <motion.a
+                  href="#galeria"
+                  className="mt-8 inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300"
                   initial={{ y: 20, opacity: 0 }}
                   animate={inView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     boxShadow: '0 0 30px rgba(255,255,255,0.3)'
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Conocer Más
-                </motion.button>
+                  Ver nuestro trabajo
+                </motion.a>
               </div>
             </div>
 
@@ -327,13 +310,14 @@ const Work = () => {
                   <motion.div
                     className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0"
                   >
-                    <motion.button
-                      className="bg-primary text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors duration-300"
+                    <motion.a
+                      href="#contacto"
+                      className="inline-block bg-primary text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Más información
-                    </motion.button>
+                    </motion.a>
                   </motion.div>
                 </div>
               </motion.div>

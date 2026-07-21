@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '@/components/Home/Hero'
 import NosotrosCompact from '@/components/Home/nosotros/compact'
 import Work from '@/components/Home/work'
+import Galeria from '@/components/Home/galeria'
 import Portal from '@/components/Home/portal'
 import Clientes from '@/components/Home/clientes'
 import Contacto from '@/components/Home/contacto'
@@ -19,6 +20,7 @@ export default function Home() {
     <main>
       <Hero />
       <Work />
+      <Galeria />
       <Clientes />
       <NosotrosCompact />
       <Portal />

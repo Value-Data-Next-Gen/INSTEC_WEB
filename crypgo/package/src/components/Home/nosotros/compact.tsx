@@ -91,13 +91,14 @@ const NosotrosCompact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+            <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl bg-gray-950">
               <img
-                src="/images/documentation/ndt-particulas-magneticas-yugo.jpg"
-                alt="Equipo INSTEC realizando inspección técnica"
+                src="/images/documentation/ndt-molino-inspeccion.jpg"
+                alt="Equipo INSTEC realizando inspección técnica de un molino en planta"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
               
               {/* Overlay Badge */}
               <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
