@@ -402,3 +402,14 @@ a.chip { text-decoration: none; }
   .nota-aside img { width: 200px; }
   .cta-ficha { flex: 1 1 260px; }
 }
+
+.tabla .tr.dos { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+@media (max-width: 900px) { .tabla .tr.dos { grid-template-columns: 1fr; } }
+.ficha-hero.interior { min-height: min(calc(100svh - var(--head)), 720px); }
+.ficha-hero.interior .izq { justify-content: center; padding-bottom: 48px; }
+.datos-empresa { margin-top: 32px; border: 2px solid var(--ink); border-radius: 10px; background: #fff; overflow: hidden; }
+.datos-empresa > div { display: grid; grid-template-columns: 200px minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+.datos-empresa > div:last-child { border-bottom: 0; }
+.datos-empresa dt { font-family: var(--f-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g7); background: var(--g50); border-right: 1px solid var(--line); padding: 14px 16px; }
+.datos-empresa dd { margin: 0; padding: 14px 16px; font-size: 17px; color: var(--ink); font-weight: 600; }
+@media (max-width: 640px) { .datos-empresa > div { grid-template-columns: 1fr; } .datos-empresa dt { border-right: 0; padding-bottom: 6px; } }

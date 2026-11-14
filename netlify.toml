@@ -36,6 +36,13 @@
   status = 301
   force = true
 
+# /proyectos/ se retiró (mostraba trabajos sin respaldo); su contenido real
+# (fotos de terreno) vive en la home. 301 para no perder enlaces existentes.
+[[redirects]]
+  from = "/proyectos/*"
+  to = "/#terreno"
+  status = 301
+
 # Headers de seguridad para todo el sitio.
 [[headers]]
   for = "/*"
