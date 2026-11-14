@@ -3,7 +3,7 @@
 Estado y guía de continuidad del sitio corporativo de **INSTEC – Ingeniería e
 Inspecciones Técnicas** (ensayos no destructivos, Chile).
 
-_Última actualización: 2026-07-21._
+_Última actualización: 2026-11-13 (rediseño ficha técnica, notas, SEO y GA4)._
 
 ---
 
@@ -16,7 +16,7 @@ _Última actualización: 2026-07-21._
 | **Render** | Static export (`output: 'export'`; build en `.next`, export en `out/`) |
 | **Base de build** | `crypgo/package` |
 | **Hosting** | Netlify (deploy automático desde `main`) |
-| **Marca** | Verde `#1DAE61`; sistema de utilidades `nicepage-*` en `globals.css` |
+| **Marca** | Sistema de las piezas de LinkedIn: verde `#14BF85`, oscuro `#07382A`, Archivo + JetBrains Mono. Estilos en `src/styles/instec.css` |
 | **Idioma** | Español (Chile) |
 
 ### Comandos
@@ -79,24 +79,39 @@ Entregado vía PR #2 (squash) → **mergeado a `main`** (commit `9016d46`).
 
 ---
 
-## 3. ⚠️ Pendientes antes de cerrar producción
+## 2.c Qué se hizo (nov 2026 — rama `feat/rediseno-linkedin-seo`)
 
-Todo se configura en un solo lugar salvo el GA ID (variable de entorno).
+- **SEO técnico:**
+  - Se eliminó el fallback SPA, que devolvía la home con 200 en cualquier URL.
+  - 404 real, `robots.txt` y `sitemap.xml` estáticos; el sitemap incluye las notas con su fecha.
+  - Dominio principal `https://instecltda.cl`. `instec.cl` y `www.instec.cl` redirigen con 301 (`netlify.toml`).
+  - Se eliminaron `/signin` y `/signup`.
+  - JSON-LD con `sameAs` a LinkedIn y logo limpio (`images/logo/instec-logo.png`). OG nueva (`images/og-instec.jpg`).
+- **GA4:** propiedad "INSTEC (instecltda.cl)" en la cuenta de Analytics de Value Data (43770219), flujo web 16338483362, ID **G-75HGV8G13H**, definido en `netlify.toml`.
+- **Rediseño en el sistema de las piezas de LinkedIn:**
+  - La home es una "ficha técnica de servicio": cotización por método, pieza y lugar que abre WhatsApp con el mensaje escrito; la figura cambia según el método.
+  - Tabla de métodos, galería de 16 figuras reales, hoja de ruta + CIT (8 preguntas), clientes confirmados, notas y contacto.
+  - `/servicios` y `/nosotros` rehechas solo con datos confirmados.
+  - `/proyectos` se retiró (mostraba trabajos sin respaldo: PDVSA, SIDOR…) y redirige con 301 a `/#terreno`.
+- **Notas técnicas:** `/notas/` y 13 notas `/notas/<slug>/`, hechas desde los posts de LinkedIn (`src/content/notas.ts`), con TechArticle + BreadcrumbList.
+- **Fotos:** 16 fotos reales mejoradas con Codex (luz y nitidez; sin cambios de contenido) en `public/images/terreno/`. Procedencia en `docs/fotos-terreno.md` y en los `.json` junto a cada imagen. Los originales están intactos en `documentation/`.
+- **Contexto de producto:** `PRODUCT.md`.
 
-1. **Google Analytics** — definir `NEXT_PUBLIC_GA_ID` (formato `G-XXXXXXXXXX`)
-   en las variables de entorno de **Netlify**. Sin esto, la analítica no
-   registra nada (los eventos quedan no-op). Ver `.env.example`.
+### Pendientes nuevos
+1. **URLs de cada post de LinkedIn:** agregar `linkedinUrl` en `src/content/notas.ts`. Hoy el botón lleva a la página de la empresa.
+2. **Confirmar que la app del CIT ya opera:** la nota del CIT dice que es digital y que la hizo Value Data (`// REVISAR`).
+3. **Otros clientes del sitio antiguo** (Colbún, Sermin, Minera Candelaria, Sandvik, Ferroman…): no se publicaron sin confirmación.
+4. **Search Console:** verificar `instecltda.cl` y enviar el sitemap.
+5. **Nueva nota:** para publicar una, agregar el objeto en `src/content/notas.ts` y su portada en `public/images/notas/`.
 
-2. **Redes sociales** — reemplazar las URLs placeholder en
-   `crypgo/package/src/lib/site.ts` → `SITE.social.facebook` y
-   `SITE.social.linkedin` (hoy apuntan a las home genéricas).
+---
 
-3. **Dominio** — confirmar/ajustar `SITE.url` en `lib/site.ts`
-   (hoy `https://www.instec.cl`). Afecta canonical y OpenGraph (`og:url`,
-   `og:image` absoluta).
+## 3. Pendientes de jul 2026 (estado al 2026-11-13)
 
-4. **Otros datos de contacto** (si cambian) — teléfono secundario, email,
-   dirección y horarios viven en `lib/site.ts` y `components/Home/contacto`.
+1. ~~Google Analytics~~ — **resuelto**: `NEXT_PUBLIC_GA_ID = G-75HGV8G13H` en `netlify.toml`.
+2. ~~Redes sociales~~ — **resuelto**: LinkedIn real (`linkedin.com/company/instec-ltda/`); se quitó el placeholder de Facebook.
+3. ~~Dominio~~ — **resuelto**: `SITE.url = https://instecltda.cl` y 301 desde `instec.cl`.
+4. **Otros datos de contacto** (si cambian): teléfonos, correo y dirección viven en `src/lib/site.ts`.
 
 > Tras cambiar cualquiera de estos, `git push` a `main` redepliega solo.
 
