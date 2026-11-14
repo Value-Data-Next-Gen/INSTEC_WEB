@@ -14,6 +14,9 @@
   # URL de la app de gestión a la que apunta el botón "Iniciar sesión".
   # Cambiar a https://app.instecltda.cl cuando el dominio propio tenga SSL.
   NEXT_PUBLIC_APP_URL = "https://instec-app.azurewebsites.net"
+  # GA4: propiedad "INSTEC (instecltda.cl)" en la cuenta de Analytics de Value Data
+  # (cuenta 43770219), flujo web "INSTEC web" (16338483362). ID público.
+  NEXT_PUBLIC_GA_ID = "G-75HGV8G13H"
 
 # Dominio principal: https://instecltda.cl (confirmado 2026-11-13).
 # Los dominios alternativos redirigen con 301 conservando la ruta y los ?utm_.
