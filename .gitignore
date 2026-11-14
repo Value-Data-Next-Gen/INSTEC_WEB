@@ -1,0 +1,5 @@
+# Impeccable: bocetos, capturas y estado local (no se versionan)
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+.impeccable/config.local.json

@@ -1,29 +1,27 @@
-import React from 'react'
-import Hero from '@/components/Home/Hero'
-import NosotrosCompact from '@/components/Home/nosotros/compact'
-import Work from '@/components/Home/work'
-import Galeria from '@/components/Home/galeria'
-import Portal from '@/components/Home/portal'
-import Clientes from '@/components/Home/clientes'
-import Contacto from '@/components/Home/contacto'
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
+import HeroFicha from '@/components/instec/HeroFicha'
+import Metodos from '@/components/instec/Metodos'
+import Terreno from '@/components/instec/Terreno'
+import Proceso from '@/components/instec/Proceso'
+import { Clientes, Contacto, NotasRecientes } from '@/components/instec/Cierre'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'INSTEC - Ingeniería e Inspecciones Técnicas | Ensayos No Destructivos',
-  description: 'Más de 30 años ofreciendo servicios de inspección técnica, ensayos no destructivos y control de calidad en Chile. Ultrasonido, radiografía, partículas magnéticas y más.',
+  title: 'Ensayos no destructivos en Chile | INSTEC Ltda.',
+  description:
+    'Ultrasonido, radiografía, partículas magnéticas, tintas penetrantes y más, con norma y criterio de aceptación. Más de 30 años en terreno y taller. Cotiza por WhatsApp.',
   path: '/',
 })
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Work />
-      <Galeria />
+      <HeroFicha />
+      <Metodos />
+      <Terreno />
+      <Proceso />
       <Clientes />
-      <NosotrosCompact />
-      <Portal />
+      <NotasRecientes />
       <Contacto />
     </main>
   )

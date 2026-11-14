@@ -1,19 +1,27 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Archivo, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Layout/Header'
-import Footer from '@/components/Layout/Footer'
+import '@/styles/instec.css'
+import Header from '@/components/instec/Header'
+import Footer from '@/components/instec/Footer'
+import WhatsAppFloat from '@/components/instec/WhatsAppFloat'
 import { ThemeProvider } from 'next-themes'
-import ScrollToTop from '@/components/ScrollToTop'
-import FloatingContact from '@/components/floating-contact'
 import Analytics from '@/components/Analytics'
 import Aoscompo from '@/utils/aos'
 import { SITE } from '@/lib/site'
 
-const inter = Inter({
+// Tipografías de las piezas de INSTEC en LinkedIn, autoalojadas por next/font.
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
+  variable: '--font-archivo',
+})
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  display: 'swap',
+  variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
@@ -42,13 +50,13 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: 'INSTEC - Ingeniería e Inspecciones Técnicas',
     description: SITE.description,
-    images: [{ url: '/images/og-default.png', width: 1200, height: 630, alt: SITE.legalName }],
+    images: [{ url: '/images/og-instec.jpg', width: 1200, height: 630, alt: SITE.legalName }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'INSTEC - Ingeniería e Inspecciones Técnicas',
     description: SITE.description,
-    images: ['/images/og-default.png'],
+    images: ['/images/og-instec.jpg'],
   },
   robots: { index: true, follow: true },
 }
@@ -59,8 +67,8 @@ const jsonLd = {
   '@id': `${SITE.url}/#organizacion`,
   name: SITE.legalName,
   alternateName: ['INSTEC', 'INSTEC Ltda.'],
-  logo: `${SITE.url}/images/og-default.png`,
-  image: `${SITE.url}/images/og-default.png`,
+  logo: `${SITE.url}/images/logo/instec-logo.png`,
+  image: `${SITE.url}/images/og-instec.jpg`,
   sameAs: [SITE.social.linkedin],
   description: SITE.description,
   url: SITE.url,
@@ -89,23 +97,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='es' suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+    <html lang='es' className={`${archivo.variable} ${mono.variable}`} suppressHydrationWarning>
+      <body className='instec' suppressHydrationWarning>
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ThemeProvider
-          attribute='class'
-          enableSystem={true}
-          defaultTheme='system'>
+        <a href='#contenido' className='sr-only focus:not-sr-only'>
+          Saltar al contenido
+        </a>
+        <div className='ruler' aria-hidden='true' />
+        {/* Sitio de un solo tema: la ficha mezcla zonas claras y oscuras por diseño. */}
+        <ThemeProvider attribute='class' forcedTheme='light' enableSystem={false}>
           <Aoscompo>
             <Header />
-            {children}
+            <div id='contenido'>{children}</div>
             <Footer />
           </Aoscompo>
-          <ScrollToTop />
-          <FloatingContact />
+          <WhatsAppFloat />
         </ThemeProvider>
         <Analytics />
       </body>

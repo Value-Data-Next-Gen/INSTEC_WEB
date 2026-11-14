@@ -39,19 +39,19 @@
   --z-index-999: 999;
 
   /* INSTEC Official Color Scheme */
-  --instec-green: #1DAE61;
-  --color-primary: #1DAE61;
-  --color-primary-dark: #178a4d;
-  --color-primary-light: #2bc570;
+  --instec-green: #14BF85;
+  --color-primary: #0C8A60;
+  --color-primary-dark: #07382A;
+  --color-primary-light: #14BF85;
   --color-secondary: #6c5ce7;
   --color-accent: #fd79a8;
-  --color-success: #1DAE61;
+  --color-success: #0C8A60;
   --color-warning: #fdcb6e;
   --color-error: #e84393;
   
   /* Text Colors */
-  --color-text-primary: #2d3436;
-  --color-text-secondary: #636e72;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
   --color-text-muted: #b2bec3;
   --color-text-light: #ddd;
   
