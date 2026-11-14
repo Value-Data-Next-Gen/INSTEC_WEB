@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { NOTAS } from '@/content/notas'
 import { Ic } from './Icons'
 
-const PASOS = [
+export const PASOS = [
   {
     t: 'Visita previa',
     d: 'Evaluamos en terreno y definimos el alcance, el procedimiento y el criterio de aceptación.',

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { METODOS } from '@/lib/metodos'
 import { NOTAS } from '@/content/notas'
+import { paginaPorCode } from '@/content/metodos-paginas'
 import { CotizarWhatsApp } from './Tracked'
 
 // Nota técnica que explica mejor cada método (si existe).
@@ -40,13 +41,16 @@ const Metodos = () => (
         </div>
         {METODOS.map((m) => {
           const nota = NOTAS.find((n) => n.slug === NOTA_POR_METODO[m.code])
+          const pagina = paginaPorCode(m.code)
           return (
             <div className='tr' role='row' key={m.code}>
               <span role='cell' className={`code${m.code.length > 3 ? ' long' : ''}`}>
                 {m.code}
               </span>
               <div role='cell'>
-                <h3 className='nom'>{m.nombre}</h3>
+                <h3 className='nom'>
+                  {pagina ? <Link href={`/servicios/${pagina.slug}/`}>{m.nombre}</Link> : m.nombre}
+                </h3>
                 <p>{m.detecta}</p>
                 {nota && (
                   <p style={{ marginTop: 8 }}>

@@ -459,3 +459,13 @@ a.chip { text-decoration: none; }
 /* tercera ronda: fecha corta visible en el rail móvil; etiqueta de la figura grande sin corte */
 @media (max-width: 640px) { .rail .rc { display: inline; } }
 .terreno .big .tag { max-width: calc(100% - 28px); }
+
+/* páginas por método (/servicios/<método>/) */
+.chip.on { background: var(--dark); border-color: var(--dark); color: var(--g); cursor: default; }
+a.chip { display: inline-block; text-decoration: none; }
+.ficha .v.fijo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--ink); }
+.nota-link { margin-top: 24px; font-size: 16px; }
+.nota-link a { color: var(--g7); font-weight: 700; }
+.otros-metodos { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.tabla .nom a { color: inherit; text-decoration: underline; text-decoration-color: var(--g); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.tabla .nom a:hover { color: var(--g7); text-decoration-color: currentColor; }
