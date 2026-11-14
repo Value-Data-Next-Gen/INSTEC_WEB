@@ -16,11 +16,13 @@ export const pageMetadata = ({
   /** Ruta absoluta del sitio, ej. "/servicios". */
   path: string
 }): Metadata => {
-  const url = `${SITE.url}${path}`
+  // trailingSlash: true en next.config → el canonical debe terminar en "/".
+  const canonical = path.endsWith('/') ? path : `${path}/`
+  const url = `${SITE.url}${canonical}`
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical },
     openGraph: {
       type: 'website',
       locale: 'es_CL',

@@ -10,7 +10,8 @@ export const SITE = {
   legalName: 'INSTEC - Ingeniería e Inspecciones Técnicas',
   description:
     'Más de 30 años ofreciendo servicios de inspección técnica, ensayos no destructivos y control de calidad en Chile.',
-  url: 'https://www.instec.cl',
+  // Dominio principal (confirmado 2026-11-13). instec.cl y www.* redirigen con 301 (netlify.toml).
+  url: 'https://instecltda.cl',
 
   contact: {
     email: 'instec@instec.cl',
@@ -28,8 +29,7 @@ export const SITE = {
   },
 
   social: {
-    facebook: 'https://www.facebook.com/',
-    linkedin: 'https://www.linkedin.com/',
+    linkedin: 'https://www.linkedin.com/company/instec-ltda/',
   },
 } as const
 

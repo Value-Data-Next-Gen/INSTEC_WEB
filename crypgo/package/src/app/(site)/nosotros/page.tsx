@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Nosotros - INSTEC | Más de 30 años de experiencia',
+  title: 'Nosotros: más de 30 años en inspección técnica',
   description: 'Conoce la historia de INSTEC, nuestra trayectoria de más de 30 años en inspección técnica y ensayos no destructivos. Nuestro equipo y valores.',
   path: '/nosotros',
 })

@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Proyectos y Clientes - INSTEC | Portfolio y Casos de Éxito',
+  title: 'Proyectos y clientes',
   description: 'Portfolio completo de proyectos, trabajos realizados y clientes satisfechos en inspección técnica y ensayos no destructivos. +30 años de experiencia.',
   path: '/proyectos',
 })

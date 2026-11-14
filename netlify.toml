@@ -15,11 +15,23 @@
   # Cambiar a https://app.instecltda.cl cuando el dominio propio tenga SSL.
   NEXT_PUBLIC_APP_URL = "https://instec-app.azurewebsites.net"
 
-# SPA fallback: el static export sirve index.html para rutas no encontradas.
+# Dominio principal: https://instecltda.cl (confirmado 2026-11-13).
+# Los dominios alternativos redirigen con 301 conservando la ruta y los ?utm_.
+# (www.instecltda.cl -> instecltda.cl lo hace Netlify solo, por ser el primario.)
+# No hay fallback SPA: el static export genera un HTML por ruta y Netlify sirve
+# 404.html con estado 404 real para lo que no existe (antes devolvía la home con
+# 200, lo que generaba soft-404 y servía HTML en /robots.txt y /sitemap.xml).
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://instec.cl/*"
+  to = "https://instecltda.cl/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.instec.cl/*"
+  to = "https://instecltda.cl/:splat"
+  status = 301
+  force = true
 
 # Headers de seguridad para todo el sitio.
 [[headers]]

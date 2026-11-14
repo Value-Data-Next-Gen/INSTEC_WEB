@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Servicios - INSTEC | Ensayos No Destructivos, Metrología e Inspecciones',
+  title: 'Servicios: ensayos no destructivos, metrología e inspecciones',
   description: 'Servicios completos: ensayos no destructivos, metrología, metodología de inspección, ultrasonido, radiografía industrial y más. +30 años de experiencia.',
   path: '/servicios',
 })

@@ -56,7 +56,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': `${SITE.url}/#organizacion`,
   name: SITE.legalName,
+  alternateName: ['INSTEC', 'INSTEC Ltda.'],
+  logo: `${SITE.url}/images/og-default.png`,
+  image: `${SITE.url}/images/og-default.png`,
+  sameAs: [SITE.social.linkedin],
   description: SITE.description,
   url: SITE.url,
   email: SITE.contact.email,

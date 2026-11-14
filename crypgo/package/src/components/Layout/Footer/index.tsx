@@ -19,14 +19,6 @@ const Footer: FC = () => {
               y ensayos no destructivos con los más altos estándares de calidad.
             </p>
             <div className='flex gap-6 items-center mt-8 relative z-1'>
-              <Link href={SITE.social.facebook} target='_blank' rel='noopener noreferrer' className='group' aria-label='Facebook'>
-                <Icon
-                  icon='fa6-brands:facebook-f'
-                  width='24'
-                  height='24'
-                  className='text-white group-hover:text-primary transition-colors'
-                />
-              </Link>
               <Link href={SITE.social.linkedin} target='_blank' rel='noopener noreferrer' className='group' aria-label='LinkedIn'>
                 <Icon
                   icon='fa6-brands:linkedin-in'
