@@ -280,7 +280,7 @@ body.instec a { text-underline-offset: 3px; }
 .terreno .big .cap { font-size: 18px; font-weight: 700; color: #fff; left: 22px; bottom: 20px; max-width: 70%; }
 .terreno .big .mark { position: absolute; z-index: 2; right: 26px; bottom: 22px; }
 .terreno .mark.xs { position: absolute; z-index: 2; right: 12px; bottom: 12px; }
-.terreno .figura:not(.big) .cap { right: 64px; }
+.terreno .figura:not(.big) .cap { right: 100px; }
 .terreno .figura:not(.big) .tag { max-width: calc(100% - 28px); }
 .mark.xs b { font-size: 15px; } .mark.xs span { font-size: 6.5px; letter-spacing: 0.1em; }
 .terreno .mid { grid-column: span 5; grid-row: span 2; }
@@ -455,3 +455,7 @@ a.chip { text-decoration: none; }
   .terreno .figura:not(.big) .shade { background: linear-gradient(180deg, rgba(4, 40, 30, 0.55), rgba(4, 40, 30, 0) 34%, rgba(4, 40, 30, 0) 52%, rgba(4, 40, 30, 0.95) 100%); }
   .terreno .figura:not(.big) .cap b { margin-bottom: 0; }
 }
+
+/* tercera ronda: fecha corta visible en el rail móvil; etiqueta de la figura grande sin corte */
+@media (max-width: 640px) { .rail .rc { display: inline; } }
+.terreno .big .tag { max-width: calc(100% - 28px); }

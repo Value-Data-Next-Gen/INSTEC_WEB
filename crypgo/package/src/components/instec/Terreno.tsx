@@ -58,8 +58,8 @@ const Terreno = () => {
             Lo que hacemos, <em>en fotos reales de terreno y taller.</em>
           </h2>
           <p className='lead'>
-            Rodetes Francis, molinos, ejes, soldaduras y fundiciones. Cada figura indica el método y la
-            pieza que se ve.
+            Rodetes Francis, molinos, ejes, soldaduras y fundiciones. Cada figura lleva su número y su
+            lugar; ábrela para ver el método y la pieza.
           </p>
         </div>
 
