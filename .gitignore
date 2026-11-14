@@ -3,3 +3,7 @@
 .impeccable/review/
 .impeccable/build/
 .impeccable/config.local.json
+
+# Estado local de Netlify CLI (deploys de prueba)
+.netlify/
+crypgo/package/.netlify/

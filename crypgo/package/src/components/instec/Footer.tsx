@@ -4,7 +4,7 @@ import { SITE, whatsappURL } from '@/lib/site'
 import { NAV } from '@/lib/nav'
 
 const Footer = () => (
-  <footer className='site-footer'>
+  <footer id='pie-sitio' className='site-footer'>
     <div className='w'>
       <div className='cols'>
         <div>

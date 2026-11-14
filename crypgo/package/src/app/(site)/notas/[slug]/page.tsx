@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
+const fechaCorta = (iso: string) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' })
+
 const fecha = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('es-CL', { day: '2-digit', month: 'long', year: 'numeric' })
 
@@ -41,6 +44,7 @@ export default async function NotaPage({ params }: Props) {
   const relacionadas = n.relacionadas
     .map((s) => NOTAS.find((x) => x.slug === s))
     .filter((x): x is NonNullable<typeof x> => Boolean(x))
+    .sort((a, b) => b.fecha.localeCompare(a.fecha))
 
   const url = `${SITE.url}/notas/${n.slug}/`
   const jsonLd = {
@@ -122,27 +126,27 @@ export default async function NotaPage({ params }: Props) {
               </div>
 
               <div className='pregunta night'>
-                <span className='lab'>Pregunta</span>
                 <p>{n.cierre}</p>
                 <TrackedLink
-                  href={SITE.social.linkedin}
+                  href={n.linkedinUrl ?? SITE.social.linkedin}
                   label='linkedin_responder'
                   donde='nota'
                   className='btn ghost sm'
                   external>
                   <Ic name='linkedin' />
-                  Respóndela en LinkedIn
+                  {n.linkedinUrl ? 'Respóndela en el post de LinkedIn' : 'Respóndela en la página de INSTEC en LinkedIn'}
                 </TrackedLink>
               </div>
-              <p className='mono' style={{ fontSize: 13, color: 'var(--muted)', marginTop: 16 }}>
-                {n.fuente}
-              </p>
             </div>
 
             <aside className='nota-aside'>
-              <img src={n.portada} alt={`Pieza publicada en LinkedIn: ${n.titulo}`} width={720} height={900} />
+              <figure style={{ margin: 0 }}>
+                <img src={n.portada} alt={`Pieza publicada en LinkedIn: ${n.titulo}`} width={720} height={900} />
+                <figcaption className='pie-pieza'>
+                  Pieza publicada en LinkedIn · {n.fuente}
+                </figcaption>
+              </figure>
               <div className='cta-ficha'>
-                <span className='lab'>Cotización</span>
                 <p>
                   {metodo
                     ? `¿Necesitas ${metodo.nombre.toLowerCase()}? Te cotizamos en terreno o en taller.`
@@ -168,7 +172,7 @@ export default async function NotaPage({ params }: Props) {
               <nav className='notas-lista' style={{ borderTop: 0, marginTop: 0 }} aria-label='Notas relacionadas'>
                 {relacionadas.map((r) => (
                   <Link key={r.slug} href={`/notas/${r.slug}/`}>
-                    <span className='f'>{fecha(r.fecha)}</span>
+                    <span className='f'>{fechaCorta(r.fecha)}</span>
                     <span className='p'>{r.pilar}</span>
                     <span className='t'>{r.titulo}</span>
                     <Ic name='arrow' />

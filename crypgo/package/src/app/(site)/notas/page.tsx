@@ -25,7 +25,7 @@ export default function NotasPage() {
       <section className='sec paper' style={{ paddingBottom: 48 }}>
         <div className='w'>
           <div className='rail'>
-            <span>Notas técnicas · Publicadas en LinkedIn</span>
+            <span className='ra'>Notas técnicas<span className='rs'> · Publicadas en LinkedIn</span></span>
             <span>{NOTAS.length} notas</span>
           </div>
           <div className='sec-head'>

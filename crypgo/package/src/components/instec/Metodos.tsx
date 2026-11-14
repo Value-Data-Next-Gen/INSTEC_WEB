@@ -16,16 +16,16 @@ const Metodos = () => (
   <section id='metodos' className='sec' aria-labelledby='titulo-metodos'>
     <div className='w'>
       <div className='rail'>
-        <span>Métodos · Qué detecta cada ensayo</span>
+        <span className='ra'>Métodos<span className='rs'> · Qué detecta cada ensayo</span></span>
         <span>{METODOS.length} servicios</span>
       </div>
       <div className='sec-head'>
         <h2 id='titulo-metodos' className='h-display h2'>
           Cada ensayo ve una cosa. <em>Elegimos el que responde tu pregunta.</em>
         </h2>
-        <p className='lead'>
-          Se elige según el defecto que más preocupa, el espesor, el acceso y lo que pide el código.
-          Si no sabes cuál pedir, te asesoramos.
+        <p className='callout'>
+          Se elige según el defecto que más preocupa, el espesor, el acceso y lo que pide el código. Si
+          no sabes cuál pedir, te asesoramos.
         </p>
       </div>
 

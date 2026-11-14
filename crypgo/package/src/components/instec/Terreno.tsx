@@ -50,7 +50,7 @@ const Terreno = () => {
     <section id='terreno' className='sec night' aria-labelledby='titulo-terreno'>
       <div className='w'>
         <div className='rail'>
-          <span>Terreno · Fotos de trabajos de INSTEC</span>
+          <span className='ra'>Terreno<span className='rs'> · Fotos de trabajos de INSTEC</span></span>
           <span>{FOTOS.length} figuras</span>
         </div>
         <div className='sec-head'>
@@ -77,15 +77,15 @@ const Terreno = () => {
                 <span className='shade' />
                 <span className='tag'>
                   <i />
-                  Fig. {f.fig}
-                  <span className='tt'> · {f.tag}</span>
+                  <span className='nw'>Fig. {f.fig}</span>
+                  <span className='tt'> · {size === 'big' || size === 'mid' ? f.tag : f.tag.split(' · ')[0]}</span>
                 </span>
                 <span className='cap'>
                   <b>{f.lugar}</b>
                   {f.pie}
                 </span>
-                {size === 'big' && (
-                  <span className='mark sm' aria-hidden='true'>
+                {(
+                  <span className={`mark ${size === 'big' ? 'sm' : 'xs'}`} aria-hidden='true'>
                     <b>INSTEC</b>
                     <span>LTDA</span>
                   </span>

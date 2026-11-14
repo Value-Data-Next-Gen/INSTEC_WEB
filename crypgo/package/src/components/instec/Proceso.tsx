@@ -28,7 +28,7 @@ const Proceso = () => (
   <section id='proceso' className='sec paper' aria-labelledby='titulo-proceso'>
     <div className='w'>
       <div className='rail'>
-        <span>Cómo trabajamos · De la visita al certificado</span>
+        <span className='ra'>Cómo trabajamos<span className='rs'> · De la visita al certificado</span></span>
         <span>{PASOS.length} pasos</span>
       </div>
       <div className='sec-head'>

@@ -19,7 +19,10 @@ const PageHead = ({
     <section className='ficha-hero interior'>
       <div className='izq paper'>
         <div className='rail'>
-          <span>{rail[0]}</span>
+          <span className='ra'>
+            {rail[0].split(' · ')[0]}
+            {rail[0].includes(' · ') && <span className='rs'> · {rail[0].split(' · ').slice(1).join(' · ')}</span>}
+          </span>
           <span>{rail[1]}</span>
         </div>
         <h1 className='h-display'>{title}</h1>

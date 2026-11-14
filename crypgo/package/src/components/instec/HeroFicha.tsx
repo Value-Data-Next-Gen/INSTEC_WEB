@@ -48,7 +48,7 @@ const HeroFicha = () => {
   const enviar = (e: React.FormEvent) => {
     e.preventDefault()
     trackWhatsAppClick('ficha')
-    trackLead({ canal: 'whatsapp', metodo })
+    trackLead({ canal: 'whatsapp', metodo, origen: 'ficha' })
     window.open(whatsappCotizacion(solicitud), '_blank', 'noopener,noreferrer')
   }
 
@@ -56,7 +56,7 @@ const HeroFicha = () => {
     <section className='ficha-hero' aria-labelledby='titulo-home'>
       <div className='izq paper'>
         <div className='rail'>
-          <span>Ficha de servicio · Ensayos no destructivos</span>
+          <span className='ra'>Ficha de servicio<span className='rs'> · Ensayos no destructivos</span></span>
           <span>Santiago · Chile</span>
         </div>
         <h1 id='titulo-home' className='h-display'>
@@ -130,7 +130,7 @@ const HeroFicha = () => {
               o{' '}
               <a
                 href={mailtoCotizacion(solicitud)}
-                onClick={() => trackLead({ canal: 'email', metodo })}>
+                onClick={() => trackLead({ canal: 'email', metodo, origen: 'ficha' })}>
                 por correo
               </a>
             </span>

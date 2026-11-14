@@ -16,7 +16,7 @@ export const Clientes = () => (
   <section className='sec' aria-labelledby='titulo-clientes' style={{ paddingBottom: 0 }}>
     <div className='w'>
       <div className='rail'>
-        <span>Clientes · Trabajan con INSTEC</span>
+        <span className='ra'>Clientes<span className='rs'> · Trabajan con INSTEC</span></span>
         <span>14+ clientes activos</span>
       </div>
       <h2 id='titulo-clientes' className='sr-only'>
@@ -39,7 +39,7 @@ export const NotasRecientes = ({ max = 5 }: { max?: number }) => (
   <section className='sec' aria-labelledby='titulo-notas'>
     <div className='w'>
       <div className='rail'>
-        <span>Notas técnicas · Publicadas en LinkedIn</span>
+        <span className='ra'>Notas técnicas<span className='rs'> · Publicadas en LinkedIn</span></span>
         <span>{NOTAS.length} notas</span>
       </div>
       <div className='sec-head'>
@@ -79,7 +79,7 @@ export const Contacto = () => (
   <section id='contacto' className='sec night' aria-labelledby='titulo-contacto'>
     <div className='w'>
       <div className='rail'>
-        <span>Contacto · Cotización</span>
+        <span className='ra'>Contacto<span className='rs'> · Cotización</span></span>
         <span>Santiago · Chile</span>
       </div>
       <div className='contacto' style={{ marginTop: 28 }}>

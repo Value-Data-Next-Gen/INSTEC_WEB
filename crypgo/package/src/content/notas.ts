@@ -37,6 +37,8 @@ export type Nota = {
   fuente: string
   portada: string
   relacionadas: string[]
+  /** URL del post en LinkedIn (cuando se tenga). */
+  linkedinUrl?: string
 }
 
 export const NOTAS: Nota[] = [

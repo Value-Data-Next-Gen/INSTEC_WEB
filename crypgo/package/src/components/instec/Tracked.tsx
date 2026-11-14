@@ -1,5 +1,5 @@
 'use client'
-import { trackCtaClick, trackLead, trackWhatsAppClick } from '@/lib/analytics'
+import { trackCtaClick, trackWhatsAppClick } from '@/lib/analytics'
 import { whatsappCotizacion, type Solicitud } from '@/lib/cotizacion'
 import { whatsappURL } from '@/lib/site'
 import { Ic } from './Icons'
@@ -21,10 +21,7 @@ export const CotizarWhatsApp = ({
     href={solicitud ? whatsappCotizacion(solicitud) : whatsappURL()}
     target='_blank'
     rel='noopener noreferrer'
-    onClick={() => {
-      trackWhatsAppClick(donde)
-      if (solicitud?.metodo) trackLead({ canal: 'whatsapp', metodo: solicitud.metodo, origen: donde })
-    }}>
+    onClick={() => trackWhatsAppClick(donde)}>
     <Ic name='whatsapp' />
     {children}
   </a>
