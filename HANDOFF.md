@@ -79,7 +79,7 @@ Entregado vía PR #2 (squash) → **mergeado a `main`** (commit `9016d46`).
 
 ---
 
-## 2.c Qué se hizo (nov 2026 — rama `feat/rediseno-linkedin-seo`)
+## 2.c Qué se hizo (nov 2026 — en producción desde el 2026-11-14)
 
 - **SEO técnico:**
   - Se eliminó el fallback SPA, que devolvía la home con 200 en cualquier URL.
@@ -88,6 +88,9 @@ Entregado vía PR #2 (squash) → **mergeado a `main`** (commit `9016d46`).
   - Se eliminaron `/signin` y `/signup`.
   - JSON-LD con `sameAs` a LinkedIn y logo limpio (`images/logo/instec-logo.png`). OG nueva (`images/og-instec.jpg`).
 - **GA4:** propiedad "INSTEC (instecltda.cl)" en la cuenta de Analytics de Value Data (43770219), flujo web 16338483362, ID **G-75HGV8G13H**, definido en `netlify.toml`.
+  - Propiedad 564329916. `generate_lead` está marcado como evento clave (sin valor predeterminado). Vinculada con Search Console.
+- **Search Console (2026-11-14):** propiedad de dominio `instecltda.cl`, verificada con un registro TXT `google-site-verification=…` en Azure DNS (zona `instecltda.cl`, grupo `rg-instec`). **No borrar ese TXT.** Sitemap enviado e indexación de la home solicitada. Hay un sitemap antiguo de 2018 (`https://www.instecltda.cl/sitemap.xml`) en la lista; se puede quitar.
+- **Páginas por método:** `/servicios/<método>/` para UT, RT, MT, PT, VT, ET y espesores (`src/content/metodos-paginas.ts`, `src/app/(site)/servicios/[metodo]/page.tsx`). Cada una tiene ficha de cotización con el método fijo, qué detecta, normas de referencia habituales, qué recibes y notas relacionadas. JSON-LD Service + BreadcrumbList.
 - **Rediseño en el sistema de las piezas de LinkedIn:**
   - La home es una "ficha técnica de servicio": cotización por método, pieza y lugar que abre WhatsApp con el mensaje escrito; la figura cambia según el método.
   - Tabla de métodos, galería de 16 figuras reales, hoja de ruta + CIT (8 preguntas), clientes confirmados, notas y contacto.
@@ -101,7 +104,7 @@ Entregado vía PR #2 (squash) → **mergeado a `main`** (commit `9016d46`).
 1. **URLs de cada post de LinkedIn:** agregar `linkedinUrl` en `src/content/notas.ts`. Hoy el botón lleva a la página de la empresa.
 2. **Confirmar que la app del CIT ya opera:** la nota del CIT dice que es digital y que la hizo Value Data (`// REVISAR`).
 3. **Otros clientes del sitio antiguo** (Colbún, Sermin, Minera Candelaria, Sandvik, Ferroman…): no se publicaron sin confirmación.
-4. **Search Console:** verificar `instecltda.cl` y enviar el sitemap.
+4. ~~Search Console~~ hecho el 2026-11-14 (ver arriba).
 5. **Nueva nota:** para publicar una, agregar el objeto en `src/content/notas.ts` y su portada en `public/images/notas/`.
 
 ---
