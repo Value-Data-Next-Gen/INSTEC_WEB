@@ -1,0 +1,491 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-14T13:30:34.112Z",
+  "title": "Design System: INSTEC Ltda.",
+  "extensions": {
+    "colorMeta": {
+      "g": {
+        "role": "primary",
+        "displayName": "Verde INSTEC",
+        "canonical": "oklch(71.3% 0.153 162.3)",
+        "tonalRamp": [
+          "oklch(15% 0.040 162.3)",
+          "oklch(25% 0.153 162.3)",
+          "oklch(35% 0.153 162.3)",
+          "oklch(48% 0.153 162.3)",
+          "oklch(60% 0.153 162.3)",
+          "oklch(72% 0.153 162.3)",
+          "oklch(85% 0.153 162.3)",
+          "oklch(95% 0.040 162.3)"
+        ]
+      },
+      "g6": {
+        "role": "primary",
+        "displayName": "Verde Presionado",
+        "canonical": "oklch(64.8% 0.138 163.0)",
+        "tonalRamp": [
+          "oklch(15% 0.040 163.0)",
+          "oklch(25% 0.138 163.0)",
+          "oklch(35% 0.138 163.0)",
+          "oklch(48% 0.138 163.0)",
+          "oklch(60% 0.138 163.0)",
+          "oklch(72% 0.138 163.0)",
+          "oklch(85% 0.138 163.0)",
+          "oklch(95% 0.040 163.0)"
+        ]
+      },
+      "g7": {
+        "role": "primary",
+        "displayName": "Verde Texto",
+        "canonical": "oklch(56.1% 0.119 162.8)",
+        "tonalRamp": [
+          "oklch(15% 0.040 162.8)",
+          "oklch(25% 0.119 162.8)",
+          "oklch(35% 0.119 162.8)",
+          "oklch(48% 0.119 162.8)",
+          "oklch(60% 0.119 162.8)",
+          "oklch(72% 0.119 162.8)",
+          "oklch(85% 0.119 162.8)",
+          "oklch(95% 0.040 162.8)"
+        ]
+      },
+      "dark": {
+        "role": "secondary",
+        "displayName": "Noche Verde",
+        "canonical": "oklch(30.5% 0.056 168.8)",
+        "tonalRamp": [
+          "oklch(15% 0.040 168.8)",
+          "oklch(25% 0.056 168.8)",
+          "oklch(35% 0.056 168.8)",
+          "oklch(48% 0.056 168.8)",
+          "oklch(60% 0.056 168.8)",
+          "oklch(72% 0.056 168.8)",
+          "oklch(85% 0.056 168.8)",
+          "oklch(95% 0.040 168.8)"
+        ]
+      },
+      "deep": {
+        "role": "secondary",
+        "displayName": "Verde Profundo",
+        "canonical": "oklch(24.8% 0.045 170.3)",
+        "tonalRamp": [
+          "oklch(15% 0.040 170.3)",
+          "oklch(25% 0.045 170.3)",
+          "oklch(35% 0.045 170.3)",
+          "oklch(48% 0.045 170.3)",
+          "oklch(60% 0.045 170.3)",
+          "oklch(72% 0.045 170.3)",
+          "oklch(85% 0.045 170.3)",
+          "oklch(95% 0.040 170.3)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta Pizarra",
+        "canonical": "oklch(20.8% 0.040 265.8)",
+        "tonalRamp": [
+          "oklch(15% 0.040 265.8)",
+          "oklch(25% 0.040 265.8)",
+          "oklch(35% 0.040 265.8)",
+          "oklch(48% 0.040 265.8)",
+          "oklch(60% 0.040 265.8)",
+          "oklch(72% 0.040 265.8)",
+          "oklch(85% 0.040 265.8)",
+          "oklch(95% 0.040 265.8)"
+        ]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Texto Pizarra",
+        "canonical": "oklch(37.2% 0.039 257.3)",
+        "tonalRamp": [
+          "oklch(15% 0.039 257.3)",
+          "oklch(25% 0.039 257.3)",
+          "oklch(35% 0.039 257.3)",
+          "oklch(48% 0.039 257.3)",
+          "oklch(60% 0.039 257.3)",
+          "oklch(72% 0.039 257.3)",
+          "oklch(85% 0.039 257.3)",
+          "oklch(95% 0.039 257.3)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Gris Nota",
+        "canonical": "oklch(52.2% 0.039 255.3)",
+        "tonalRamp": [
+          "oklch(15% 0.039 255.3)",
+          "oklch(25% 0.039 255.3)",
+          "oklch(35% 0.039 255.3)",
+          "oklch(48% 0.039 255.3)",
+          "oklch(60% 0.039 255.3)",
+          "oklch(72% 0.039 255.3)",
+          "oklch(85% 0.039 255.3)",
+          "oklch(95% 0.039 255.3)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "oklch(92.9% 0.013 255.5)",
+        "tonalRamp": [
+          "oklch(15% 0.013 255.5)",
+          "oklch(25% 0.013 255.5)",
+          "oklch(35% 0.013 255.5)",
+          "oklch(48% 0.013 255.5)",
+          "oklch(60% 0.013 255.5)",
+          "oklch(72% 0.013 255.5)",
+          "oklch(85% 0.013 255.5)",
+          "oklch(95% 0.013 255.5)"
+        ]
+      },
+      "surf": {
+        "role": "neutral",
+        "displayName": "Superficie",
+        "canonical": "oklch(98.4% 0.003 247.9)",
+        "tonalRamp": [
+          "oklch(15% 0.003 247.9)",
+          "oklch(25% 0.003 247.9)",
+          "oklch(35% 0.003 247.9)",
+          "oklch(48% 0.003 247.9)",
+          "oklch(60% 0.003 247.9)",
+          "oklch(72% 0.003 247.9)",
+          "oklch(85% 0.003 247.9)",
+          "oklch(95% 0.003 247.9)"
+        ]
+      },
+      "g50": {
+        "role": "neutral",
+        "displayName": "Tinte Verde",
+        "canonical": "oklch(97.3% 0.021 170.6)",
+        "tonalRamp": [
+          "oklch(15% 0.021 170.6)",
+          "oklch(25% 0.021 170.6)",
+          "oklch(35% 0.021 170.6)",
+          "oklch(48% 0.021 170.6)",
+          "oklch(60% 0.021 170.6)",
+          "oklch(72% 0.021 170.6)",
+          "oklch(85% 0.021 170.6)",
+          "oklch(95% 0.021 170.6)"
+        ]
+      },
+      "g100": {
+        "role": "neutral",
+        "displayName": "Verde Hielo",
+        "canonical": "oklch(93.2% 0.050 169.3)",
+        "tonalRamp": [
+          "oklch(15% 0.040 169.3)",
+          "oklch(25% 0.050 169.3)",
+          "oklch(35% 0.050 169.3)",
+          "oklch(48% 0.050 169.3)",
+          "oklch(60% 0.050 169.3)",
+          "oklch(72% 0.050 169.3)",
+          "oklch(85% 0.050 169.3)",
+          "oklch(95% 0.040 169.3)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(35% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(60% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(85% 0 0)",
+          "oklch(100% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "H1 del héroe y de páginas interiores; énfasis en verde sin cursiva."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "H2 de sección bajo el rail."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nombres de método, títulos en listas de notas, pasos."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Bajadas bajo titulares, en muted, máx. 62ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Celdas de tabla y pasos."
+      },
+      "prose": {
+        "displayName": "Prosa",
+        "purpose": "Cuerpo de las notas técnicas, máx. 72ch."
+      },
+      "rail": {
+        "displayName": "Rail",
+        "purpose": "Encabezado de campo de borde a borde, en mayúsculas."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Claves de la ficha, lugar de figura, pasos, encabezados de tabla y footer, en mayúsculas."
+      },
+      "figure-number": {
+        "displayName": "Cifra",
+        "purpose": "Indicadores del héroe, cifras tabulares."
+      },
+      "wordmark": {
+        "displayName": "Marca",
+        "purpose": "Sólo el logotipo en texto INSTEC / LTDA."
+      }
+    },
+    "shadows": [
+      {
+        "name": "flotante",
+        "value": "0 10px 30px -8px rgba(4, 40, 30, 0.55)",
+        "purpose": "Botón flotante de WhatsApp."
+      },
+      {
+        "name": "lamina",
+        "value": "0 18px 40px -24px rgba(4, 40, 30, 0.5)",
+        "purpose": "Imagen de la pieza de LinkedIn al costado de una nota."
+      },
+      {
+        "name": "barrido",
+        "value": "0 0 24px 4px rgba(20, 191, 133, 0.55)",
+        "purpose": "Línea de escaneo que cruza la figura al cambiar de método."
+      },
+      {
+        "name": "foco-campo",
+        "value": "inset 3px 0 0 #14bf85",
+        "purpose": "Celda de la ficha con foco."
+      }
+    ],
+    "borders": [
+      {
+        "name": "tinta",
+        "value": "2px solid #0f172a",
+        "purpose": "Fichas, hojas, rails, tablas, indicadores."
+      },
+      {
+        "name": "fila",
+        "value": "1px solid #e2e8f0",
+        "purpose": "Separador entre filas."
+      },
+      {
+        "name": "vidrio",
+        "value": "1px solid rgba(20, 191, 133, 0.45) a 0.6",
+        "purpose": "Etiqueta y pie de figura sobre foto."
+      }
+    ],
+    "surfaces": [
+      {
+        "name": "papel-grilla",
+        "value": "linear-gradient(rgba(20,191,133,0.07) 1px, transparent 1px) 0 0/40px 40px, linear-gradient(90deg, rgba(20,191,133,0.07) 1px, transparent 1px) 0 0/40px 40px, #fff",
+        "purpose": "Zonas claras del héroe."
+      },
+      {
+        "name": "noche",
+        "value": "radial-gradient(900px 600px at 92% 0%, rgba(20,191,133,0.24), transparent 62%), radial-gradient(700px 600px at 0% 100%, rgba(20,191,133,0.12), transparent 60%), #07382a; más grilla blanca al 4.5 % de 40 px enmascarada hacia abajo",
+        "purpose": "Secciones oscuras."
+      },
+      {
+        "name": "degrade-figura",
+        "value": "linear-gradient(180deg, rgba(4,40,30,0.5) 0%, rgba(4,40,30,0) 24%, rgba(4,40,30,0) 50%, rgba(4,40,30,0.9) 84%, #04281e 100%), linear-gradient(90deg, rgba(7,56,42,0.5), rgba(7,56,42,0) 32%)",
+        "purpose": "Sobre toda foto real."
+      },
+      {
+        "name": "regla",
+        "value": "repeating-linear-gradient(180deg, #14bf85 0 2px, transparent 2px 12px) 8px de ancho; repeating-linear-gradient(180deg, #14bf85 0 2px, transparent 2px 60px) 16px de ancho; border-right 2px solid #c9f4e3",
+        "purpose": "Regla fija del borde izquierdo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva única de todas las transiciones."
+      },
+      {
+        "name": "estado",
+        "value": "0.15s a 0.2s",
+        "purpose": "Hover de botones, chips y filas."
+      },
+      {
+        "name": "barrido",
+        "value": "0.9s",
+        "purpose": "Escaneo y revelado de la figura al cambiar de método; desactivado con prefers-reduced-motion."
+      },
+      {
+        "name": "zoom-galeria",
+        "value": "0.6s, scale(1.035)",
+        "purpose": "Hover de figuras de la galería."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "movil",
+        "value": "640px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "heroe-apilado",
+        "value": "1024px"
+      },
+      {
+        "name": "menu",
+        "value": "1180px"
+      },
+      {
+        "name": "compacto",
+        "value": "1360px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción de cotizar o WhatsApp; relleno verde con texto verde profundo.",
+      "html": "<button class=\"ds-btn\">Pedir cotización por WhatsApp</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;font-family:Archivo, system-ui, sans-serif;font-weight:800;font-size:17px;line-height:1;padding:16px 22px;border-radius:8px;border:2px solid var(--g, #14bf85);background:var(--g, #14bf85);color:var(--deep, #04281e);cursor:pointer;transition:background .2s cubic-bezier(0.16, 1, 0.3, 1),border-color .2s cubic-bezier(0.16, 1, 0.3, 1),transform .2s cubic-bezier(0.16, 1, 0.3, 1)}.ds-btn:hover{background:var(--g6, #0fa876);border-color:var(--g6, #0fa876)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--g, #14bf85);outline-offset:3px}"
+    },
+    {
+      "name": "Botón fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria (portal de clientes, leer más).",
+      "html": "<button class=\"ds-btn-ghost\">Portal clientes</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:10px;font-family:Archivo, system-ui, sans-serif;font-weight:800;font-size:17px;line-height:1;padding:16px 22px;border-radius:8px;border:2px solid var(--g, #14bf85);background:transparent;color:var(--g7, #0A7A55);cursor:pointer;transition:background .2s cubic-bezier(0.16, 1, 0.3, 1)}.ds-btn-ghost:hover{background:var(--g50, #e9fbf4)}.ds-btn-ghost:active{transform:translateY(1px)}.ds-btn-ghost:focus-visible{outline:2px solid var(--g, #14bf85);outline-offset:3px}"
+    },
+    {
+      "name": "Chip de método",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Selector de método en la ficha; seleccionado en noche verde.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">UT</button><button class=\"ds-chip\">RT</button><button class=\"ds-chip\">Espesores</button></div>",
+      "css": ".ds-chips{display:flex;gap:6px}.ds-chip{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:13px;font-weight:700;padding:6px 10px;border-radius:5px;border:1.5px solid var(--line, #e2e8f0);background:#fff;color:var(--ink, #0f172a);cursor:pointer;transition:border-color .15s cubic-bezier(0.16, 1, 0.3, 1),background .15s cubic-bezier(0.16, 1, 0.3, 1)}.ds-chip:hover{border-color:var(--g, #14bf85)}.ds-chip[aria-pressed=\"true\"]{background:var(--dark, #07382a);border-color:var(--dark, #07382a);color:var(--g, #14bf85)}.ds-chip:focus-visible{outline:2px solid var(--g, #14bf85);outline-offset:3px}"
+    },
+    {
+      "name": "Ficha",
+      "kind": "input",
+      "refersTo": "ficha",
+      "description": "Formulario como hoja clave/valor con borde de tinta.",
+      "html": "<div class=\"ds-ficha\"><label class=\"ds-row\"><span class=\"ds-k\">PIEZA</span><span class=\"ds-v\"><input placeholder=\"Soldadura, eje, rodete…\"></span></label><label class=\"ds-row\"><span class=\"ds-k\">LUGAR</span><span class=\"ds-v\"><input placeholder=\"Terreno o taller · ciudad\"></span></label></div>",
+      "css": ".ds-ficha{border:2px solid var(--ink, #0f172a);border-radius:10px;background:#fff;overflow:hidden}.ds-row{display:grid;grid-template-columns:128px 1fr;border-bottom:1px solid var(--line, #e2e8f0)}.ds-row:last-child{border-bottom:0}.ds-k{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--g7, #0A7A55);background:var(--g50, #e9fbf4);border-right:1px solid var(--line, #e2e8f0);display:flex;align-items:center;padding:0 14px}.ds-v{padding:10px 14px}.ds-v input{width:100%;border:0;outline:0;background:transparent;font:500 16px/1.4 Archivo, system-ui, sans-serif;color:var(--ink, #0f172a);padding:4px 0}.ds-v input::placeholder{color:#66758a}.ds-v:focus-within{background:#fbfffd;box-shadow:inset 3px 0 0 var(--g, #14bf85)}"
+    },
+    {
+      "name": "Rail",
+      "kind": "custom",
+      "refersTo": "rail",
+      "description": "Encabezado de campo de borde a borde con línea de tinta de 2 px.",
+      "html": "<div class=\"ds-rail\"><span>Métodos · Qué detecta cada ensayo</span><span>7 servicios</span></div>",
+      "css": ".ds-rail{display:flex;justify-content:space-between;gap:16px;font-family:'JetBrains Mono', ui-monospace, monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g7, #0A7A55);border-bottom:2px solid var(--ink, #0f172a);padding-bottom:10px}"
+    },
+    {
+      "name": "Figura",
+      "kind": "card",
+      "refersTo": "figure-tag",
+      "description": "Foto real como figura: degradé, marcas de regla, etiqueta y pie con marca.",
+      "html": "<figure class=\"ds-fig\"><span class=\"ds-tag\"><i></i>Fig. 01 · UT · Phased array</span><figcaption class=\"ds-pie\"><div><div class=\"ds-lab\">Taller</div><p>Ultrasonido phased array con equipo OmniScan SX.</p></div><span class=\"ds-mark\"><b>INSTEC</b><span>LTDA</span></span></figcaption></figure>",
+      "css": ".ds-fig{position:relative;margin:0;height:320px;border-radius:10px;overflow:hidden;border:1px solid rgba(20,191,133,.35);background:linear-gradient(180deg,rgba(4,40,30,.5),rgba(4,40,30,0) 30%,rgba(4,40,30,.9) 84%,var(--deep, #04281e)),repeating-linear-gradient(180deg,rgba(20,191,133,.9) 0 2px,transparent 2px 12px) right/8px 100% no-repeat,#0b4d3a}.ds-tag{position:absolute;left:16px;top:16px;display:inline-flex;gap:8px;align-items:center;font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(4,30,22,.74);border:1px solid rgba(20,191,133,.6);border-radius:4px;padding:6px 10px}.ds-tag i{width:7px;height:7px;border-radius:50%;background:var(--g, #14bf85)}.ds-pie{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:16px 18px;border-radius:12px;background:rgba(4,30,22,.8);border:1px solid rgba(20,191,133,.45)}.ds-lab{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g, #14bf85)}.ds-pie p{margin:6px 0 0;font-family:Archivo, system-ui, sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.25}.ds-mark{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:.82;font-family:Archivo, system-ui, sans-serif;color:var(--g, #14bf85)}.ds-mark b{font-size:22px;font-weight:900}.ds-mark span{font-size:9.5px;font-weight:800;letter-spacing:.08em}"
+    },
+    {
+      "name": "Callout",
+      "kind": "custom",
+      "refersTo": "callout",
+      "description": "Frase que decide, en bloque verde sólido.",
+      "html": "<p class=\"ds-callout\">Se elige según el defecto que más preocupa, el espesor, el acceso y lo que pide el código.</p>",
+      "css": ".ds-callout{margin:0;background:var(--g, #14bf85);color:var(--deep, #04281e);font-family:Archivo, system-ui, sans-serif;font-size:19px;font-weight:800;line-height:1.4;padding:20px 24px;border-radius:10px}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Header sticky con subrayado verde en hover y página actual.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Métodos</a><a href=\"#\">Terreno</a><a href=\"#\">Notas técnicas</a><a href=\"#\">Nosotros</a></nav>",
+      "css": ".ds-nav{display:flex;gap:26px;height:72px;align-items:center;padding:0 24px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line, #e2e8f0)}.ds-nav a{font-family:Archivo, system-ui, sans-serif;font-size:15px;font-weight:600;color:var(--ink, #0f172a);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{border-color:var(--g, #14bf85)}.ds-nav a:focus-visible{outline:2px solid var(--g, #14bf85);outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Fila de hoja de datos",
+      "kind": "custom",
+      "refersTo": "data-row",
+      "description": "Fila de lista de notas o tabla con tinte en hover.",
+      "html": "<div class=\"ds-lista\"><a href=\"#\"><span class=\"ds-f\">12 nov 2026</span><span class=\"ds-p\">Norma</span><span class=\"ds-t\">ISO 5817: niveles de calidad en soldadura</span><svg class=\"ds-ar\" viewBox=\"0 0 512 512\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"48\" d=\"M268 112l144 144-144 144M392 256H100\"/></svg></a></div>",
+      "css": ".ds-lista{border-top:2px solid var(--ink, #0f172a)}.ds-lista a{display:grid;grid-template-columns:110px 90px 1fr 24px;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line, #e2e8f0);text-decoration:none;color:var(--ink, #0f172a);transition:background .2s cubic-bezier(0.16, 1, 0.3, 1)}.ds-lista a:hover{background:linear-gradient(90deg,var(--g50, #e9fbf4),rgba(233,251,244,0))}.ds-lista a:focus-visible{outline:2px solid var(--g, #14bf85);outline-offset:3px}.ds-f{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:13px;color:var(--muted, #5b6b80)}.ds-p{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g7, #0A7A55)}.ds-t{font-family:Archivo, system-ui, sans-serif;font-size:21px;font-weight:800;line-height:1.25}.ds-ar{color:var(--g7, #0A7A55)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Ficha Técnica de Servicio",
+    "overview": "El sitio es una hoja de datos de inspección, no un folleto. Cada sección es un campo de la ficha: se abre con su rail en mono sobre una línea de tinta de 2 px, el contenido se ordena en filas y celdas con borde y la cotización se llena en la ficha misma. El mundo viene de las piezas de INSTEC en LinkedIn (verde de marca, noche verde, regla con marcas, fotos reales numeradas como figuras) y aquí se profesionaliza: menos ornamento, más estructura de documento.\n\nLa densidad es de documento técnico: tablas, listas con filas separadas por líneas de 1 px y celdas de clave/valor, nunca filas de tarjetas iguales. Las superficies son de dos familias: claras (blanco, con grilla de plano verde muy tenue en héroes y en algunas secciones) y oscuras (noche verde con grilla blanca tenue que se desvanece hacia abajo; verde profundo en figuras y footer). La foto real de terreno o taller es la prueba y se presenta como figura: degradé verde oscuro, marcas de regla en el borde, etiqueta \"Fig. 0X · método\" en mono y la marca \"INSTEC / LTDA\".\n\nEl rechazo visual confirmado y sostenido en todas las páginas construidas: nada de filas de tarjetas de servicios iguales y nada de números de sección ni kickers sobre los titulares de sección o de página.",
+    "keyCharacteristics": [
+      "Regla con marcas fija en el borde izquierdo de toda página.",
+      "Rail en mono de borde a borde con línea de tinta de 2 px como encabezado de cada campo.",
+      "Fichas y hojas con borde de tinta de 2 px y radio de 10 px; filas internas con líneas de 1 px.",
+      "Fotos reales como figuras numeradas sobre degradé verde oscuro.",
+      "Plano: la profundidad la dan bordes, superficies y degradés, no sombras.",
+      "Mono sólo para datos: claves, códigos de método, figuras, fechas, cifras."
+    ],
+    "rules": [
+      {
+        "name": "La Regla del Verde por Superficie",
+        "body": "El verde de marca rellena y marca; sobre papel, el texto verde va en `g7`, y sobre noche en `g`. La única excepción es el logotipo en texto, que va en `g` también sobre blanco.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de las Dos Familias",
+        "body": "Las superficies claras son blanco (con o sin grilla de plano) y las oscuras son `dark` o `deep`. No hay grises medios ni fondos de otra familia de color.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Dato en Mono",
+        "body": "Mono sólo para datos y rótulos: claves, códigos, figuras, fechas, cifras, chips, rails, rótulos de grupo y de columna. Nunca para titulares display ni prosa corrida.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla del Énfasis Verde",
+        "body": "El énfasis en titulares es color (`g7` en papel, `g` en noche), nunca cursiva ni subrayado.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Regla",
+        "body": "La regla con marcas (marca corta cada 12 px, larga cada 60 px, en `g`, con borde derecho de 2 px en `g100`) acompaña toda página por el borde izquierdo. Es la firma del mundo; no se quita ni se duplica a la derecha.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Rail",
+        "body": "Cada campo se abre con un rail de borde a borde: dos extremos en mono (qué es / dónde o cuántos) sobre una línea de tinta de 2 px. Sin números de sección. En móvil queda en una sola línea, con la fecha o el dato corto a la derecha. Una etiqueta suelta y corta encima de un titular no es un rail.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Borde de Tinta",
+        "body": "Lo que en otro sitio sería una tarjeta con sombra aquí es una hoja con borde de tinta de 2 px. Las sombras de elevación sólo existen para lo que flota sobre la página (WhatsApp) o para la lámina de LinkedIn al costado de una nota; el barrido y la barra de foco no son elevación.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do abrir cada campo con el rail de borde a borde: mono 13 px, dos extremos y línea de tinta de 2 px.\r",
+      "Do presentar cada foto real como figura: degradé `deep`, marcas de regla, etiqueta \"Fig. 0X · método\" y marca \"INSTEC / LTDA\".\r",
+      "Do ordenar contenidos repetidos como hoja de datos (tabla, filas con líneas de 1 px, clave/valor), con borde superior de tinta de 2 px.\r",
+      "Do usar `g7` para texto verde sobre papel y `g` sobre noche (salvo el logotipo).\r",
+      "Do mantener la regla con marcas en el borde izquierdo de toda página nueva.\r",
+      "Do usar íconos SVG de Ionicons, empaquetados vía Iconify offline, a 18–22 px.\r"
+    ],
+    "donts": [
+      "Don't poner números de sección ni etiquetas sueltas (kickers) sobre los titulares de sección o de página; el rail es el único encabezado de campo. Ordinales de paso y rótulos de grupo son datos, no kickers.\r",
+      "Don't armar filas de tarjetas de servicios iguales; los servicios y las notas se listan como hoja de datos.\r",
+      "Don't usar el indigo de Value Data ni el teal de Gonzalo en ninguna superficie de INSTEC.\r",
+      "Don't poner etiqueta de figura ni presentar como trabajo real una ambientación generada con Codex.\r",
+      "Don't dar sombra de elevación a fichas, hojas, tablas o figuras; su estructura es el borde.\r",
+      "Don't usar mono para titulares display o prosa corrida, ni cursiva para el énfasis.\r",
+      "Don't tomar como sistema los tokens legacy de `globals.css` del template anterior.\r"
+    ]
+  }
+}
