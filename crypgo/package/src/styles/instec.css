@@ -279,7 +279,9 @@ body.instec a { text-underline-offset: 3px; }
 .terreno .big { grid-column: span 7; grid-row: span 3; }
 .terreno .big .cap { font-size: 18px; font-weight: 700; color: #fff; left: 22px; bottom: 20px; max-width: 70%; }
 .terreno .big .mark { position: absolute; z-index: 2; right: 26px; bottom: 22px; }
-.terreno .mark.xs { position: absolute; z-index: 2; right: 14px; top: 14px; }
+.terreno .mark.xs { position: absolute; z-index: 2; right: 12px; bottom: 12px; }
+.terreno .figura:not(.big) .cap { right: 64px; }
+.terreno .figura:not(.big) .tag { max-width: calc(100% - 28px); }
 .mark.xs b { font-size: 15px; } .mark.xs span { font-size: 6.5px; letter-spacing: 0.1em; }
 .terreno .mid { grid-column: span 5; grid-row: span 2; }
 .terreno .tall { grid-column: span 5; grid-row: span 1; }
@@ -434,6 +436,7 @@ a.chip { text-decoration: none; }
   .rail > * { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .rail > :last-child { flex: none; max-width: 45%; }
   .rail .rs { display: none; }
+  .rail .rc { display: inline; }
 }
 
 /* callout sólido (lámina s47 "RT o UT") */
@@ -443,4 +446,12 @@ a.chip { text-decoration: none; }
 @media (max-width: 1360px) and (min-width: 1025px) {
   .chip { font-size: 12px; padding: 5px 8px; }
   .ficha .row { grid-template-columns: 112px minmax(0, 1fr); }
+}
+
+.rail .rc { display: none; }
+/* En móvil, las figuras chicas muestran solo la etiqueta de lugar; el pie completo está en el lightbox. */
+@media (max-width: 900px) {
+  .terreno .figura:not(.big) .cp { display: none; }
+  .terreno .figura:not(.big) .shade { background: linear-gradient(180deg, rgba(4, 40, 30, 0.55), rgba(4, 40, 30, 0) 34%, rgba(4, 40, 30, 0) 52%, rgba(4, 40, 30, 0.95) 100%); }
+  .terreno .figura:not(.big) .cap b { margin-bottom: 0; }
 }

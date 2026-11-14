@@ -17,7 +17,7 @@ export const Clientes = () => (
     <div className='w'>
       <div className='rail'>
         <span className='ra'>Clientes<span className='rs'> · Trabajan con INSTEC</span></span>
-        <span>14+ clientes activos</span>
+        <span>14+ clientes</span>
       </div>
       <h2 id='titulo-clientes' className='sr-only'>
         Clientes

@@ -82,13 +82,16 @@ export default async function NotaPage({ params }: Props) {
       <article className='sec paper nota'>
         <div className='w'>
           <nav className='rail' aria-label='Ruta'>
-            <span>
+            <span className='ra'>
               <Link href='/notas/' style={{ color: 'inherit', textDecoration: 'none' }}>
                 Notas técnicas
-              </Link>{' '}
-              · {n.pilar}
+              </Link>
+              <span className='rs'> · {n.pilar}</span>
             </span>
-            <time dateTime={n.fecha}>{fecha(n.fecha)}</time>
+            <time dateTime={n.fecha}>
+              <span className='rs'>{fecha(n.fecha)}</span>
+              <span className='rc'>{fechaCorta(n.fecha)}</span>
+            </time>
           </nav>
 
           <div className='nota-grid'>

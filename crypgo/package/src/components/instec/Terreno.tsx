@@ -82,7 +82,7 @@ const Terreno = () => {
                 </span>
                 <span className='cap'>
                   <b>{f.lugar}</b>
-                  {f.pie}
+                  <span className='cp'>{f.pie}</span>
                 </span>
                 {(
                   <span className={`mark ${size === 'big' ? 'sm' : 'xs'}`} aria-hidden='true'>
