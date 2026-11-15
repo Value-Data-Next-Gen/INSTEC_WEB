@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { APP_URL } from '@/lib/appUrl'
-import { SITE, whatsappURL } from '@/lib/site'
+import { BROCHURE_PDF, SITE, whatsappURL } from '@/lib/site'
 import { NAV } from '@/lib/nav'
 
 const Footer = () => (
@@ -42,6 +42,8 @@ const Footer = () => (
           <a href={APP_URL} target='_blank' rel='noopener'>
             Portal de clientes
           </a>
+          <a href='/nosotros/#politica'>Política integrada</a>
+          <a href={BROCHURE_PDF}>Brochure (PDF)</a>
         </div>
       </div>
       <div className='legal'>

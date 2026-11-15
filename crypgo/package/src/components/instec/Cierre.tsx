@@ -7,7 +7,7 @@ import { CotizarWhatsApp, TrackedLink } from './Tracked'
 import { Ic } from './Icons'
 
 /** Clientes confirmados (2026-11-13). */
-const CLIENTES = ['ANDRITZ', 'Revesol', 'Maestranza Diesel']
+export const CLIENTES = ['ANDRITZ', 'Revesol', 'Maestranza Diesel']
 
 const fechaCorta = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' })

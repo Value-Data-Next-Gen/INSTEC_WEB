@@ -469,3 +469,32 @@ a.chip { display: inline-block; text-decoration: none; }
 .otros-metodos { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
 .tabla .nom a { color: inherit; text-decoration: underline; text-decoration-color: var(--g); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 .tabla .nom a:hover { color: var(--g7); text-decoration-color: currentColor; }
+
+/* ---------- empresa: misión, visión, valores y política integrada ---------- */
+.mv-fichas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.mv-ficha { position: relative; background: var(--deep); border: 1px solid rgba(20, 191, 133, 0.45); border-radius: 10px; padding: 28px 30px 30px; color: #e2f5ee; overflow: hidden; }
+.mv-ficha::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 12px; background: repeating-linear-gradient(180deg, rgba(20, 191, 133, 0.85) 0 2px, transparent 2px 12px) right / 6px 100% no-repeat; }
+.mv-k { display: inline-block; font-family: var(--f-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--deep); background: var(--g); border-radius: 4px; padding: 4px 8px; }
+.mv-ficha p { margin-top: 14px; font-size: clamp(18px, 1.4vw, 21px); line-height: 1.5; color: #fff; font-weight: 500; text-wrap: pretty; }
+.valores-regla { margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.valores-regla > div { padding: 20px 22px 0 0; }
+.valores-regla dt { font-size: 21px; font-weight: 800; color: var(--ink); line-height: 1.2; }
+.valores-regla .n { display: block; font-family: var(--f-mono); font-size: 13px; font-weight: 700; color: var(--g7); margin-bottom: 6px; }
+.valores-regla dd { margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: var(--body); }
+@media (max-width: 900px) { .mv-fichas { grid-template-columns: 1fr; } .valores-regla { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .valores-regla { grid-template-columns: 1fr; } .valores-regla > div { padding-right: 0; padding-bottom: 16px; border-bottom: 1px solid var(--line); } }
+
+.pol-doc { margin-top: 40px; background: #fff; border: 2px solid var(--ink); border-radius: 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: hidden; }
+.pol-area { padding: 26px 28px; border-bottom: 1px solid var(--line); }
+.pol-area:nth-child(odd) { border-right: 1px solid var(--line); }
+.pol-area h3 { font-family: var(--f-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g7); }
+.pol-area ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 12px; }
+.pol-area li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
+.pol-area li svg { width: 20px; height: 20px; color: var(--g7); margin-top: 2px; }
+.pol-firma { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; padding: 18px 28px; background: var(--g50); }
+.pol-firma b { font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+.pol-firma span { font-size: 15px; color: var(--muted); }
+.pol-firma .btn { margin-left: auto; }
+@media (max-width: 900px) { .pol-doc { grid-template-columns: 1fr; } .pol-area:nth-child(odd) { border-right: 0; } .pol-firma .btn { margin-left: 0; } }
+
+.bb-acc { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }

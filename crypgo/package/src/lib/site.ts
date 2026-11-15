@@ -38,3 +38,6 @@ export const whatsappURL = (message: string = SITE.whatsapp.defaultMessage): str
   const text = message ? `?text=${encodeURIComponent(message)}` : ''
   return `https://wa.me/${SITE.whatsapp.number}${text}`
 }
+
+/** Brochure corporativo en PDF (se genera desde /brochure/ con `npm run brochure`). */
+export const BROCHURE_PDF = '/brochure/INSTEC-Brochure-Corporativo.pdf'

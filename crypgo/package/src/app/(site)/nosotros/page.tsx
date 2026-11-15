@@ -4,11 +4,12 @@ import { SITE } from '@/lib/site'
 import PageHead from '@/components/instec/PageHead'
 import Proceso from '@/components/instec/Proceso'
 import { Clientes, Contacto, NotasRecientes } from '@/components/instec/Cierre'
+import { BrochureBanda, MisionVision, Politica } from '@/components/instec/Empresa'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Nosotros: más de 30 años en inspección técnica',
+  title: 'Nosotros: misión, visión y política · más de 30 años en inspección técnica',
   description:
-    'INSTEC Ltda., Ingeniería e Inspecciones Técnicas: más de 30 años y más de 500 proyectos de ensayos no destructivos y control de calidad, desde Santiago.',
+    'INSTEC Ltda., Ingeniería e Inspecciones Técnicas: misión, visión, valores y política de calidad, seguridad, salud ocupacional y medio ambiente. Más de 30 años y más de 500 proyectos de ensayos no destructivos.',
   path: '/nosotros/',
 })
 
@@ -45,8 +46,11 @@ export default function NosotrosPage() {
           ))}
         </dl>
       </PageHead>
+      <MisionVision />
+      <Politica />
       <Proceso />
       <Clientes />
+      <BrochureBanda donde='nosotros' />
       <NotasRecientes max={3} />
       <Contacto />
     </main>

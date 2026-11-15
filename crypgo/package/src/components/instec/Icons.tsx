@@ -12,9 +12,10 @@ import phone from '@iconify/icons-ion/call-outline'
 import pin from '@iconify/icons-ion/location-outline'
 import login from '@iconify/icons-ion/log-in-outline'
 import external from '@iconify/icons-ion/open-outline'
+import download from '@iconify/icons-ion/download-outline'
 
 // Íconos de Ionicons empaquetados (sin pedidos a la API de Iconify en runtime).
-const ICONS = { whatsapp, linkedin, arrow, menu, close, check, prev, next, mail, phone, pin, login, external }
+const ICONS = { whatsapp, linkedin, arrow, menu, close, check, prev, next, mail, phone, pin, login, external, download }
 
 export type IconName = keyof typeof ICONS
 

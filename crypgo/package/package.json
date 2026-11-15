@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "brochure": "node scripts/brochure-pdf.js"
   },
   "dependencies": {
     "@iconify/icons-ion": "^1.2.10",

@@ -5,6 +5,7 @@ import Metodos from '@/components/instec/Metodos'
 import Terreno from '@/components/instec/Terreno'
 import Proceso from '@/components/instec/Proceso'
 import { Clientes, Contacto, NotasRecientes } from '@/components/instec/Cierre'
+import { BrochureBanda } from '@/components/instec/Empresa'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Ensayos no destructivos en Chile | INSTEC Ltda.',
@@ -22,6 +23,7 @@ export default function Home() {
       <Proceso />
       <Clientes />
       <NotasRecientes />
+      <BrochureBanda donde='home' />
       <Contacto />
     </main>
   )
